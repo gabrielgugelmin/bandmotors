@@ -10,8 +10,6 @@ img{
 }
 
 body{
-  background-color: $silver-chalice;
-
   &.overflowHidden{
     overflow: hidden;
   }
@@ -20,36 +18,49 @@ body{
 html, body {
   height: 100%;
   margin: 0; padding: 0;  /* to avoid scrollbars */
-  font-family: $titillium;
 }
+
 
 .PageWrapper {
   display: flex;  /* use the flex model */
   flex-direction: column;  /* learn more: http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
-  margin: 0 auto;
-  max-width: 1280px;
+  -margin: 0 auto;
+  -max-width: 1280px;
   min-height: 100%;
   overflow: hidden;
 }
 
 .PageContent{
-  margin-top: 80px;
+  margin-top: 76px;
 	flex: 1;
+
+  @include MQ(S){
+    margin-top: 86px;
+  }
 }
 
 .Banner{
   background-image: url(../img/banner.jpg);
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 540px;
   position: relative;
-  -margin-top: 100px;
   text-align: center;
 
   @include MQ(M){
-    height: 550px;
-    
+    height: 490px;
+  }
+
+  &::after{
+    background-color: white;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 65%;
   }
 
   &__content{
@@ -72,19 +83,19 @@ html, body {
 
   h1{
     color: white;
-    font-family: $code;
+    font-family: $bebas;
     font-size: 24px;
-    font-weight: 500;
     font-weight: bold;
-    letter-spacing: 0.9px;
+    letter-spacing: 1.6px;
     line-height: 1.2;
     margin: 0 auto;
     padding-left: 20px;
     max-width: 85%;
+    opacity: .9;
     position: relative;
 
     &::before{
-      background-color: $fuel-yellow;
+      background-color: white;
       content: "";
       display: inline-block;
       height: 95%;
@@ -106,28 +117,15 @@ html, body {
     }
 
     span{
-      color: $fuel-yellow;
-    }
-  }
-
-  .u-button{
-    margin-top: 30px;
-    padding: 14px 60px;
-
-    @include MQ(S){
-      font-size: 24px;
-      padding: 20px 80px;
-    }
-
-    @include MQ(M){
-      margin-top: 120px;
+      display: block;
+      color: $gray;
     }
   }
 }
 
 
 .Busca{
-  background-color: $tuatara;
+  background-color: $emperor;
   padding: 25px 0;
   text-align: center;
 
@@ -136,7 +134,7 @@ html, body {
   }
 
   p{
-    color: $silver;
+    color: $delta;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.4;
@@ -179,7 +177,6 @@ html, body {
     background-position: left 0;
     background-repeat: no-repeat;
     background-size: cover;
-    border-bottom: 1px solid $fuel-yellow;
     float: left;
     height: 320px;
     overflow: hidden;
@@ -189,7 +186,7 @@ html, body {
     &::after{
       @include transition(all .3s ease);
 
-      background: rgba($tuatara, .58);
+      background: rgba($mine-shaft, .58);
       content: "";
       display: block;
       height: 100%;
@@ -272,7 +269,7 @@ html, body {
     @include transform(translateY(50px));
     @include transition(all .4s ease);
 
-    background: rgba($tuatara, .67);
+    background: rgba($emperor, .67);
     bottom: 0;
     left: 0;
     opacity: 0;
@@ -319,420 +316,11 @@ html, body {
 }
 
 
-// Ver
-
-.Ver{
-  background-color: $tuatara;
-  border-bottom: 1px solid $fuel-yellow;
-  padding: 25px 0;
-
-  .u-button{
-    margin: 0 auto;
-  }
-
-  @include MQ(M){
-    padding: 45px 0;    
-  }
-}
 
 
-.Info{
-  @include clearfix;
 
-  &__left{
-    display: none;
-
-    @include MQ(M){
-      background-size: cover;
-      background: url(../img/contato.jpg) no-repeat center top;
-    }
-  }
-
-  &__right{
-    background: url(../img/couro.jpg) no-repeat 0 0;
-    background-size: cover;
-  }
-
-  &__left,
-  &__right{
-    @include MQ(M){
-      display: inline-block;
-      float: left;
-      height: 640px;
-      width: 50%;
-    }
-  }
-}
-
-.Contato{
-  padding: 30px 0;
-
-  @include MQ(M){
-    padding: 80px 12%;
-  }
-
-  h5,
-  p{
-    text-align: right;
-    line-height: 1.4;
-    letter-spacing: 1px;
-  }
-
-  h5{
-    color: $silver;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: 0;
-    text-transform: uppercase;
-  }
-
-  p{
-    font-size: 14px;
-    color: $silver;
-  }
-
-  .Form{
-    margin-top: 45px;
-  }
-
-}
-
-.Map{
-  @include clearfix;
-
-  border-bottom: 1px solid $fuel-yellow;
-
-  &__left{
-    background: url(../img/couro.jpg) no-repeat 0 0;
-    background-size: cover;
-  }
-
-  &__right{
-    height: 400px;
-  }
-
-  &__left,
-  &__right{
-
-    @include MQ(M){
-      display: inline-block;
-      float: left;
-      height: 640px;
-      width: 50%;
-    }
-  }
-}
-
-.Dados{
-  padding: 60px 15px;
-
-  @include MQ(M){
-    padding: 80px 12%;
-  }
-
-  ul{
-    color: $mercury;
-    font-size: 14px;
-    font-weight: normal;
-    letter-spacing: 1.8px;
-    line-height: 1.4;
-    list-style: none;
-    margin-left: 0;
-    margin-top: 0;
-    padding: 0;
-
-    @include MQ(M){
-      font-size: 16px;
-    }
-  }
-
-  &__logo{
-    margin-bottom: 50px;
-  }
-
-  &__endereco{
-    margin-bottom: 25px;
-  }
-
-  &__title{
-    color: $fuel-yellow;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-
-  &__social{
-    li{
-      display: inline-block;
-      margin-right: 15px;
-    }
-  }
-}
 
 #map{
   width: 100%;
   height: 100%;
-}
-
-
-
-.Detail{
-  background-color: $fuscous-gray;
-
-  h2{
-    color: $mercury;
-    font-size: 26px;
-    font-weight: bold;
-    letter-spacing: 1.4px;
-    margin: 0 0 30px;
-    position: relative;
-    line-height: 1.2;
-    text-transform: uppercase;
-
-    @include MQ(M){
-      font-size: 36px;
-    }
-
-    @include MQ(M){
-      font-size: 40px;
-    }
-
-    &::after{
-      content: "";
-      height: 1px;
-      width: 100%;
-      background-color: $fuel-yellow;
-      bottom: -10px;
-      position: absolute;
-      display: block;
-    }
-  }
-
-  ul{
-    font-size: 14px;
-    letter-spacing: 1px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @include MQ(S){
-      font-size: 16px;
-    }
-  }
-
-  li{
-    color: $mercury;
-    font-weight: bold;
-
-    span{
-      color: $dusty-gray;
-      font-weight: normal;
-    }
-  }
-
-  &__right{
-    padding: 30px;
-    
-    @include MQ(M){
-      padding: 30px 60px;
-    }
-  }
-
-  @include MQ(M){
-    display: flex;
-    @include clearfix;
-
-    &__left,
-    &__right{
-      max-height: 711px;
-    }
-
-    &__left{
-      width: 55%;
-    }
-
-    &__right{
-      width: 45%;
-    }
-
-    .u-scrollbar{
-      height: calc(711px - 148px);
-    }
-  }
-}
-
-.Slider{
-  &__item{
-    background-position: center bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 300px;
-    border-bottom: 1px solid $fuel-yellow;
-
-    @include MQ(M){
-      height: 500px;
-    }
-
-    @include MQ(L){
-      height: 610px;
-    }
-  }
-
-  &__button{
-    @include center(y);
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    height: 30px;
-    position: absolute;
-    width: 40px;
-    z-index: 1;
-
-    &::after,
-    &::before{
-      background-color: $athens-gray;
-      content: "";
-      display: inline-block;
-      height: 3px;
-      position: absolute;
-      width: 30px;
-      border-radius: 3px;
-    }
-
-    &::after{
-      top: 22px;
-    }
-
-    &::before{
-      top: 2px;
-    }
-
-    &--prev{
-      left: 5px;
-
-      &::after,
-      &::before{
-        left: 0;
-      }
-
-      &::after{
-        @include transform(rotate(45deg));
-      }
-
-      &::before{
-        @include transform(rotate(-45deg));
-      }
-    }
-
-    &--next{
-      right: 5px;
-
-      &::after,
-      &::before{
-        right: 0;
-      }
-
-      &::after{
-        @include transform(rotate(-45deg));
-      }
-
-      &::before{
-        @include transform(rotate(45deg));
-      }
-    }
-
-    &:focus{
-      outline: 0;
-    }
-  }
-}
-
-.SliderNav{
-  &__item{
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    cursor: pointer;
-    height: auto !important;
-    position: relative;
-
-    &:focus{
-      outline: none;
-    }
-
-    &::before{
-      @include transition(opacity .3s ease);
-      
-      background: rgba(#3e3d3b, .5);
-      content: "";
-      display: block;
-      height: 100%;
-      position: absolute;
-      width: 100%;
-    }
-
-    &::after{
-      content: "";
-      display: block;
-      padding-bottom: 100%;
-    }
-
-    &.slick-current{
-      &::before{
-        opacity: 0;
-      }
-    }
-  }
-}
-
-.Proposta{
-  background-color: $tuatara;
-
-  h3{
-    color: $mercury;
-    font-size: 16px;
-    line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-
-    @include MQ(S){
-      font-size: 18px;
-    }
-  }
-
-  @include MQ(M){
-    padding: 30px 12%;
-
-    .u-button{
-      color: #7d7d7c;
-      float: right;
-      max-width: 150px;
-      padding: 0;
-      text-align: center;
-    }
-  }
-}
-
-.Generic{
-  background-color: $tuatara;
-  border-bottom: 1px solid $fuel-yellow;
-  border-top: 1px solid $fuel-yellow;
-  padding: 30px 0;
-  text-align: center;  
-
-  h3{
-    color: $mercury;
-    font-size: 16px;
-    letter-spacing: 1.4px;
-    line-height: 1.2;
-    text-transform: uppercase;
-
-    @include MQ(S){
-      font-size: 18px;
-    }
-  }
-
-  @include MQ(M){
-    padding: 45px;
-  }
 }

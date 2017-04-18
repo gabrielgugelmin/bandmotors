@@ -1,52 +1,43 @@
-$code: 'Code';
+$bebas: 		'Bebas Neue';
+$open: 			'Open Sans';
 $titillium: 'Titillium';
 
 @font-face {
-	font-family: 'Titillium';
-	src: url('../fonts/Titillium-Bold.eot');
-	src: url('../fonts/Titillium-Bold.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/Titillium-Bold.woff') format('woff'),
-		url('../fonts/Titillium-Bold.ttf') format('truetype');
+	font-family: 'Bebas Neue';
+	src: url('../fonts/BebasNeueBold.eot');
+	src: url('../fonts/BebasNeueBold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/BebasNeueBold.woff') format('woff'),
+		url('../fonts/BebasNeueBold.ttf') format('truetype');
 	font-weight: bold;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Titillium';
-	src: url('../fonts/Titillium-Regular.eot');
-	src: url('../fonts/Titillium-Regular.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/Titillium-Regular.woff') format('woff'),
-		url('../fonts/Titillium-Regular.ttf') format('truetype');
+	font-family: 'Bebas Neue';
+	src: url('../fonts/BebasNeueRegular.eot');
+	src: url('../fonts/BebasNeueRegular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/BebasNeueRegular.woff') format('woff'),
+		url('../fonts/BebasNeueRegular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Titillium';
-	src: url('../fonts/Titillium-Semibold.eot');
-	src: url('../fonts/Titillium-Semibold.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/Titillium-Semibold.woff') format('woff'),
-		url('../fonts/Titillium-Semibold.ttf') format('truetype');
-	font-weight: 600;
+	src: url('../fonts/../fonts/Titillium-Regular.eot');
+	src: url('../fonts/../fonts/Titillium-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/../fonts/Titillium-Regular.woff') format('woff'),
+		url('../fonts/../fonts/Titillium-Regular.ttf') format('truetype');
+	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Code';
-	src: url('../fonts/Code-Light.eot');
-	src: url('../fonts/Code-Light.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/Code-Light.woff') format('woff'),
-		url('../fonts/Code-Light.ttf') format('truetype');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Code';
-	src: url('../fonts/Code-Bold.eot');
-	src: url('../fonts/Code-Bold.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/Code-Bold.woff') format('woff'),
-		url('../fonts/Code-Bold.ttf') format('truetype');
-	font-weight: bold;
+	font-family: 'Open Sans';
+	src: url('../fonts/OpenSans.eot');
+	src: url('../fonts/OpenSans.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/OpenSans.woff') format('woff'),
+		url('../fonts/OpenSans.ttf') format('truetype');
+	font-weight: normal;
 	font-style: normal;
 }

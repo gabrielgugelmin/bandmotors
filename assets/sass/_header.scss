@@ -1,10 +1,9 @@
 .Header{
   @include transition(background-color .4s ease, height .3s ease);
 
-  background: url(../img/header-small.jpg) no-repeat center bottom;
-  background-size: cover;
+  background-color: $mine-shaft;
   box-shadow: 0 0 10px 6px rgba(black, .5);
-  height: 100px;
+  height: 76px;
   left: 0;
   margin: 0 auto;
   position: fixed;
@@ -13,31 +12,8 @@
   width: 100%;
   z-index: 2;
 
-  @include MQ(M){
-    background-size: contain;
-    background: url(../img/header.png) no-repeat center bottom;
-    box-shadow: 0;
-    height: 237px;
-    max-width: 1280px;
-
-    &::after,
-    &::before{
-      content: "";
-      background-color: $silver-chalice;
-      display: inline-block;
-      position: absolute;
-      width: 20px;
-      height: 100px;
-      top: -2px;
-    }
-
-    &::after{
-      right: -20px;
-    }
-
-    &::before{
-      left: -20px;
-    }
+  @include MQ(S){
+    height: 86px;
   }
 
   &--internal{
@@ -47,10 +23,10 @@
   &.is-scrolling,
   &--internal{
     @include MQ(maxM){
-      height: 80px;
+      height: 60px;
       
       .MenuTrigger{
-        top: 26px;
+        top: 18px;
         width: 28px;
 
         span{
@@ -72,31 +48,25 @@
       }
 
       .Header__logo{
-        top: 28px;
-        //width: 130px;
+        img{
+          width: 70px;
+        }
       }
     }
 
     @include MQ(M){
-      border-top: 2px solid $fuel-yellow;
+      border-top: 2px solid $tosca;
       background-position: 0 top;
       box-shadow: 0 0 10px 6px rgba(black, .45);
-      height: 80px;
+      height: 70px;
 
       .Menu{
-        top: 10px;
+        top: 5px;
       }
 
       .Header__logo{
-        top: 22px;
-      }
-
-      .Header__img{
-        display: none;
-
-        &--small{
-          display: block;
-          width: 160px;
+        img{
+          width: 100px;
         }
       }
     }
@@ -108,34 +78,20 @@
     left: 30px;
     display: inline-block;
     position: absolute;
-    top: 38px;
-    width: 120px;
+    top: 10px;
 
     img{
-      @include transition(width .4s ease);
+      @include transition(width .25s ease);
+      width: 80px;
     }
 
     @include MQ(M){      
       @include transition(all .4s ease);
       @include center(x);
-      top: 32px;
-      width: auto;
-    }
-  }
 
-  &__img{
-    display: none;
-
-    @include MQ(M){
-      display: inline-block;
-    }
-  }
-
-  &__img--small{
-    //display: none;
-
-    @include MQ(M){
-      display: none;
+      img{
+        width: 140px;
+      }
     }
   }
 }
@@ -144,7 +100,7 @@
   @include transform(translateX(-100%));
   @include transition(all, .6s, ease);
   
-  background-color: $tuatara;
+  background-color: $mine-shaft;
   box-shadow: 1px -3px 2px 1px rgba(0, 0, 0, .3);
   height: 100%;
   left: 0;
@@ -167,7 +123,7 @@
     max-width: 1060px;
     opacity: 1;
     position: relative;
-    top: 25px;
+    top: 14px;
     visibility: visible;
     width: 100%;
 
@@ -179,11 +135,11 @@
       position: absolute;
 
       &:nth-child(2){
-        left: 16%;
+        left: 20%;
       }
 
       &:nth-child(3){
-        right: 16%;
+        right: 20%;
       }
 
       &:nth-child(4){
@@ -202,7 +158,7 @@
 
   // se tiver algum submenu aberto, escurece o menu
   &--subOpen{
-    background-color: darken($athens-gray, 10%);
+    background-color: darken($emperor, 10%);
 
     @include MQ(M){
       background-color: transparent;
@@ -215,7 +171,7 @@
 
       &::after,
       &::before{
-        background-color: darken($azure, 8%);
+        background-color: darken($tosca, 8%);
         content: "";
         display: block;
         height: 9px;
@@ -278,7 +234,7 @@
 
   > ul{
     li{
-      border-bottom: 1px solid $sea-buckthorn;
+      border-bottom: 1px solid $tosca;
 
       @include MQ(M){
         border: 0;
@@ -300,11 +256,15 @@
       @include transition(color .3s ease);
 
       color: white;
+      font-family: $bebas;
+      text-transform: uppercase;
       font-size: 14px;
       text-decoration: none;
       display: block;
+      letter-spacing: 2.6px;
       padding: 10px 0 10px 15px;
-      font-weight: 600;
+      font-weight: bold;
+      opacity: .7;
 
       @include MQ(S){
         font-size: 18px;
@@ -312,7 +272,7 @@
       }
 
       &:hover{
-        color: $fuel-yellow;
+        color: $tosca;
       }
     }
 
@@ -329,7 +289,7 @@
     @include transform(translateX(-100%));
     @include transition(all, .6s, ease);
 
-    background-color: $athens-gray;
+    background-color: $emperor;
     box-shadow: 1px -3px 2px 1px rgba(0, 0, 0, .3);
     height: 100%;
     opacity: 0;
@@ -390,7 +350,7 @@
     li{
       &:first-child{
         border: 0;
-        color: darken($azure, 10%);
+        color: darken($tosca, 10%);
         font-size: 26px;
         margin-bottom: 30px;
         text-align: center;
@@ -405,7 +365,7 @@
       }
 
       &:nth-child(2){
-        background-color: darken($athens-gray, 8%);
+        background-color: darken($emperor, 8%);
 
         a{
           font-size: 10px;
@@ -414,7 +374,7 @@
 
           &::after,
           &::before{
-            background-color: darken($azure, 8%);
+            background-color: darken($tosca, 8%);
             content: "";
             display: block;
             height: 9px;
@@ -465,7 +425,7 @@
     }
 
     p{
-      color: $silver;
+      color: $delta;
       font-size: 14px;
       line-height: 1.4;
     }
@@ -493,7 +453,7 @@
 	position: absolute;
 	right: 25px;
 	text-decoration: none;
-	top: 40px;
+	top: 26px;
 	width: 32px;
 	z-index: 2;
 
@@ -510,9 +470,8 @@
 		@include transition(all, .2s, linear);
 
 		background-color: white;
-		border-radius: 4px;
 		display: block;
-		height: 4px;
+		height: 2px;
 		position: relative;
 		width: 100%;
 
@@ -521,7 +480,6 @@
 			@include transform(rotate(0));
 
 			background-color: white;
-			border-radius: 4px;
 			content: "";
 			display: block;
 			height: 100%;
@@ -530,11 +488,11 @@
 		}
 
 		&::after{
-			bottom: -10px;
+			bottom: -8px;
 		}
 
 		&::before{
-			top: -10px;			
+			top: -8px;			
     }
 	}
 
