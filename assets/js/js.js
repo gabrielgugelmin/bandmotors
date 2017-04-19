@@ -103,14 +103,58 @@ $(function(){
   //initialize();
 
 
-  // SLIDER BANNER
+  // SLIDER
+
+  // banner
+
+  var $status = $('.slick-count');
+
+  $('.js-bannerSlider').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+        var i = (currentSlide ? currentSlide : 0) + 1;
+        $status.html('0' + i + '  <span>/  0' + slick.slideCount + '</span>');
+  });
 
   $('.js-bannerSlider').slick({
+    autoplay: true,
+    dots: true,
+    slide: '.Banner__item',
+    speed: 800,
     vertical: true,
     verticalSwiping: true
   });
 
-  // SLIDER PRODUTO
+
+
+  // categoria
+
+  $('.js-categoriaSlider').slick({
+    centerMode: true,
+    centerPadding: '40px',
+    slidesToShow: 5,
+    prevArrow: '<button type="button" class="Arrow__button Arrow__button--prev"></button>',
+    nextArrow: '<button type="button" class="Arrow__button Arrow__button--next"></button>',
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+
+  // produto
 
   $('.js-productSlider').slick({
     slidesToShow: 1,

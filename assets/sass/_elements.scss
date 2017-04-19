@@ -34,7 +34,7 @@
 
       input[type="text"],
 	    input[type="email"]{
-        padding-right: 30px !important;
+        padding-right: 45px !important;
       }
 
       &::after{
@@ -42,11 +42,11 @@
         background: url(../img/icons/search.png) no-repeat 0 0;
         content: "";
         display: inline-block;
-        height: 22px;
+        height: 17px;
         position: absolute;
-        right: 8px;
-        top: 6px;
-        width: 18px;
+        right: 15px;
+        top: 10px;
+        width: 23px;
       }
     }
 
@@ -90,10 +90,14 @@
 
     background-color: transparent;
     border: 2px solid $emperor;
-    font-size: 12px;
-    color: $emperor;
+		font-family: $bebas;
+		font-weight: bold;
+		letter-spacing: 1.6px;
+    font-size: 14px;
+    color: $silver-sand;
     height: 36px;
     line-height: 36px;
+		text-transform: uppercase;
     padding: 0 10px;
 
 		&:focus{
@@ -181,8 +185,86 @@
 	padding-right: 15px;
 }
 
+.slick-slide{
+	a{
+		&:focus{
+			outline: none;
+		}
+	}
+	&:focus{
+  	outline: none;
+  }
+}
 
+.Arrow{
+  &__button{
+    @include center(y);
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    height: 30px;
+    position: absolute;
+    width: 40px;
+    z-index: 1;
 
+    &::after,
+    &::before{
+      background-color: white;
+      content: "";
+      display: inline-block;
+      height: 2px;
+      position: absolute;
+      width: 20px;
+      border-radius: 3px;
+    }
+
+    &::after{
+      top: 19px;
+    }
+
+    &::before{
+      top: 6px;
+    }
+
+    &--prev{
+      left: 5px;
+
+      &::after,
+      &::before{
+        left: 0;
+      }
+
+      &::after{
+        @include transform(rotate(45deg));
+      }
+
+      &::before{
+        @include transform(rotate(-45deg));
+      }
+    }
+
+    &--next{
+      right: 5px;
+
+      &::after,
+      &::before{
+        right: 0;
+      }
+
+      &::after{
+        @include transform(rotate(-45deg));
+      }
+
+      &::before{
+        @include transform(rotate(45deg));
+      }
+    }
+
+    &:focus{
+      outline: 0;
+    }
+  }
+}
 
 
 
