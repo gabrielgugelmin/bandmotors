@@ -100,8 +100,15 @@ $(function(){
       });
   }
 
-  initialize();
+  //initialize();
 
+
+  // SLIDER BANNER
+
+  $('.js-bannerSlider').slick({
+    vertical: true,
+    verticalSwiping: true
+  });
 
   // SLIDER PRODUTO
 
