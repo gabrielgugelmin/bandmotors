@@ -394,3 +394,8 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@mixin bebas($letterSpacing: 1.6 ){
+  font-family: $bebas;
+  letter-spacing: $letterSpacing + px;
+}

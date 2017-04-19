@@ -1,5 +1,4 @@
 @import 'mixins';
-@import 'animation';
 @import 'fonts';
 @import 'colors';
 @import 'elements';
@@ -22,7 +21,6 @@ html, body {
   height: 100%;
   margin: 0; padding: 0;  /* to avoid scrollbars */
 }
-
 
 .PageWrapper {
   display: flex;  /* use the flex model */
@@ -88,10 +86,9 @@ html, body {
 
     h1{
       color: white;
-      font-family: $bebas;
+      @include bebas(6);
       font-size: 24px;
       font-weight: bold;
-      letter-spacing: 6px;
       line-height: 1.4;      
       opacity: .9;
       position: relative;
@@ -173,12 +170,11 @@ html, body {
   .slick-count{    
     bottom: 20px;
     color: white;
-    font-family: $bebas;
+    @include bebas;
     font-size: 18px;
     font-weight: bold;
     height: 30px;
     left: 0;
-    letter-spacing: 1.6px;
     margin: 0 auto;
     max-width: 80%;
     position: absolute;
@@ -252,10 +248,9 @@ html, body {
 
       bottom: 16%;
       color: $scorpion;
-      font-family: $bebas;
+      @include bebas;
       font-size: 20px;
       left: 0;
-      letter-spacing: 1.6px;
       margin: 0;
       position: absolute;
       right: 0;
@@ -313,10 +308,71 @@ html, body {
   padding: 25px 0;
   text-align: center;
 
-  @include MQ(M){
+  &__filtro{
+
+     @include MQ(S){
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    div{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      @include MQ(S){
+        flex: 2;
+      }
+    }
+
+    span{
+      @include bebas;
+      display: block;
+      color: $silver-chalice;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 10px;
+
+      @include MQ(S){
+        flex: 1;
+        text-align: right;
+        padding-right: 30px;
+        margin-bottom: 0;
+      }
+    }
+
+    button{
+      @include bebas(1);
+      @include transition(all .3s ease);
+
+      flex: 1;
+      background: transparent;
+      border: 2px solid $silver-chalice;
+      color: $silver-chalice;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 5px 0;
+      margin-right: 15px;
+      width: calc(33% - 30px); 
+
+      &:last-child{
+        margin-right: 0;
+      }
+
+      &:hover{
+        border-color: $tosca;
+        color: $tosca;
+      }
+    }
+  }
+
+  @include MQ(S){
     .Form__control--search{
       float: right;
-      width: 320px;
+      margin: 0;
+      max-width: 320px;
+      width: 100%;
     }
   }
 }
@@ -397,18 +453,17 @@ html, body {
   &__title{
     @include transition(all .3s ease-in-out);
     @include transform(translateY(-40px));
+    @include bebas(3);
 
     color: white;
-    font-family: $bebas;
     font-size: 14px;
     font-weight: bold;
     left: 20px;
-    letter-spacing: 3px;
     line-height: 1.2;
     margin: 0;
     opacity: 0;
-    visibility: hidden;
     position: absolute;
+    visibility: hidden;
     width: 100%;
     z-index: 1;
 
@@ -501,8 +556,51 @@ html, body {
   }
 }
 
+.Ver{
+  padding: 25px 0;
 
+  .u-button{
+    margin: 0 auto;
+  }
+}
 
+.Info{
+  display: flex;
+
+  &__item{    
+    background-size: cover;
+    color: $silver-sand;
+    flex: 1;
+    height: 315px;
+    position: relative;
+
+    h3{
+      @include bebas(4);
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .u-button{
+      
+      @include MQ(S){
+        margin: 0 auto;
+        max-width: 170px;
+      }
+    }
+
+    &:nth-child(1){
+      background-image: url(../img/avalie.jpg);
+    }
+
+    &:nth-child(2){
+      background-image: url(../img/negociacao.jpg);
+    }
+
+    &:nth-child(3){
+      background-image: url(../img/fale-conosco.jpg);
+    }
+  }
+}
 
 
 
