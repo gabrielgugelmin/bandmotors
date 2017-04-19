@@ -131,50 +131,58 @@
 }
 
 .u-button{
-	background-color: white;
-	border: 0;
-	color: $delta;
+	@include transition(all .25s ease-in-out);
+
+	background-color: transparent;
+	border: 2px solid $silver-chalice;
+	color: $silver-chalice;
 	display: block;
-	font-family: $titillium;
-	font-size: 16px;
+	font-family: $bebas;
+	font-size: 14px;
 	font-weight: bold;
 	height: 48px;
-	line-height: 48px;
 	letter-spacing: 1.5px;
-	max-width: 370px;
-	padding-left: 10%;
+	line-height: 48px;
+	max-width: 300px;
 	position: relative;
+	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
 	width: 100%;
 
-	span{
-		position: relative;
-		z-index: 1;
-	}
+	&::after{
+		@include transition(background-color .25s ease-in-out);
 
-	@include MQ(M){
-		padding-left: 6%;
-	}
-
-	&::before{
-		@include transition(all .5s ease);
-
-		background-color: $tosca;
+		background: $silver-chalice url(../img/icons/arrow-button.png) no-repeat 0 0;
+		background-position: center center;
 		content: "";
 		display: inline-block;
-		height: 100%;
-		left: 0;
+		height: 48px;		
 		position: absolute;
-		top: 0;
-		width: 5px;
+		right: -52px;
+		top: -2px;
+		width: 52px;		
+	}
+
+	&--small{
+		@extend .u-button;
+		height: 36px;
+		line-height: 36px;
+
+		&::after{
+			right: -36px;
+			height: 36px;
+			width: 36px;
+		}
 	}
 
 	&:hover{
-		//color: white;
+		color: $tosca;
+		border-color: $tosca;
+		text-decoration: none;
 
-		&::before{
-			width: 100%;
+		&::after{
+			background-color: $tosca;
 		}
 	}
 }
