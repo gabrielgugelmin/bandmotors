@@ -10,6 +10,8 @@ img{
 }
 
 body{
+  background-color: $mine-shaft;
+
   &.overflowHidden{
     overflow: hidden;
   }
@@ -19,7 +21,6 @@ html, body {
   height: 100%;
   margin: 0; padding: 0;  /* to avoid scrollbars */
 }
-
 
 .PageWrapper {
   display: flex;  /* use the flex model */
@@ -39,24 +40,14 @@ html, body {
   }
 }
 
-.slick-track{}
-
 .Banner{
-  background-color: black; //$cod-gray;
+  background-color: black;
   position: relative;
+  margin-bottom: 0 !important;
 
   @include MQ(M){
     height: 490px;
   }
-
-/*  &::before{
-    content: "";
-    display: block;
-    height: 100%;
-    background: rgba($cod-gray, .7);
-    width: 100%;
-    position: absolute;
-  }*/
 
   &::after{
     background-color: white;
@@ -76,6 +67,10 @@ html, body {
     height: 400px !important;
     position: relative;
 
+    @include MQ(S){
+      height: 450px !important;
+    }
+
     @include MQ(M){
       height: 490px !important;
     }
@@ -84,107 +79,300 @@ html, body {
   &__content{
     top: 20%;
     left: 0;
-    //bottom: 10%;
-    //max-width: 970px;
     position: absolute;
-    width: 100%;
-
-/*    @include MQ(S){
-      bottom: 130px;
-    }
-
-    @include MQ(M){
-      @include transform(none);
-      bottom: 80px;
-      left: 90px;
-    }*/
-  }
-
-  h1{
-    color: white;
-    font-family: $bebas;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1.6px;
-    line-height: 1.2;
     margin: 0 auto;
-    padding-left: 20px;
-    max-width: 85%;
-    opacity: .9;
-    position: relative;
+    right: 0;
+    max-width: 80%;
 
-    &::before{
-      background-color: white;
-      content: "";
-      display: inline-block;
-      height: 5px;
-      left: 20px;
-      position: absolute;
-      top: -20px;
-      width: 15%;
+    h1{
+      color: white;
+      @include bebas(6);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;      
+      opacity: .9;
+      position: relative;
+      margin: 0;
+
+      &::before{
+        background-color: white;
+        content: "";
+        display: inline-block;
+        height: 4px;
+        left: 0;
+        position: absolute;
+        top: -20px;
+        width: 70px;
+
+        @include MQ(M){
+          top: -35px;
+        }
+      }
+
+      @include MQ(S){
+        font-size: 48px;
+        letter-spacing: 11px;
+        text-align: left;
+      }
 
       @include MQ(M){
-        top: -30px;
+        font-size: 57px;
+        margin: 0;
+      }
+
+      span{
+        display: block;
+        color: $gray;
       }
     }
 
     @include MQ(S){
-      font-size: 28px;
-      text-align: left;
+      @include center(y);
     }
+  }
 
-    @include MQ(M){
-      font-size: 34px;
-      max-width: 70%;
-      margin: 0;
+  // slick dots
+
+  .slick-dots{
+    @include center(y);
+
+    right: 15px;
+    width: auto;
+
+    > li{
+      display: block;
+      margin: 8px 0;
+
+      button{
+        @include transition(opacity .3s ease);
+
+        border-radius: 50%;
+        border: 4px solid white;
+        height: 15px;
+        opacity: .4;
+        padding: 0;
+        width: 15px;
+
+        &::before{
+          display: none;
+        }
+      }
+
+      &.slick-active{
+        button{
+          opacity: 1;
+        }
+      }
+      
     }
+  }
+
+  .slick-count{    
+    bottom: 20px;
+    color: white;
+    @include bebas;
+    font-size: 18px;
+    font-weight: bold;
+    height: 30px;
+    left: 0;
+    margin: 0 auto;
+    max-width: 80%;
+    position: absolute;
+    right: 0;
+    width: 100%;
 
     span{
-      display: block;
-      color: $gray;
+      position: relative;
+      color: #747171;
+
+      &::after{
+        @include center(y);
+        background-color: #747171;
+        content: "";
+        display: block;
+        height: 3px;
+        position: absolute;
+        right: -100px;
+        width: 80px;
+      }
+    }
+
+    
+
+    @include MQ(S){
+      font-size: 24px;
+    }
+  }
+}
+
+.Categoria{
+  background: $mine-shaft;
+  background-size: cover;
+  padding: 45px 0;
+  border-bottom: 1px solid $silver-chalice;
+
+  &::before{
+    background: rgba(#3b3b3b, 1);
+    content: "";
+    display: block;
+    height: calc(100% - 90px);
+    position: absolute;
+    top: 45px;
+    width: 100%;
+  }
+
+  &::after{
+    background: url(../img/pattern.png) no-repeat 0 0;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .slick-slide{
+    height: auto;
+  }
+
+  .slick-list{
+    z-index: 1;
+  }
+
+  &__item{
+    position: relative;
+    text-align: center;
+
+    h2{
+      @include transition(all .45s ease);
+
+      bottom: 16%;
+      color: $scorpion;
+      @include bebas;
+      font-size: 20px;
+      left: 0;
+      margin: 0;
+      position: absolute;
+      right: 0;
+      text-transform: uppercase;
+    }
+
+    img{      
+      @include transform(scale(.7));
+      @include transition(all .5s ease);
+      transform-origin: center center;
+      filter: grayscale(1);
+    }
+
+    div{
+      &::before{
+        @include center;
+        @include transition(opacity .4s ease);
+
+        border: 5px solid $tosca;
+        content: "";
+        display: block;
+        height: 80%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        opacity: 0;
+        width: 65%;
+      }
+    }
+
+    &.slick-current{
+      img{
+        @include transform(scale(1) translateY(-20px));
+        filter: grayscale(0);
+      }
+
+      h2{
+        color: $mercury;
+        bottom: 15%;
+        font-size: 22px;
+      }
+
+      div{
+        &::before{
+          opacity: .67;
+        }
+      }
     }
   }
 }
 
 
 .Busca{
-  background-color: $emperor;
+  background-color: $mine-shaft;
   padding: 25px 0;
   text-align: center;
 
+  &__filtro{
+
+     @include MQ(S){
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    div{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      @include MQ(S){
+        flex: 2;
+      }
+    }
+
+    span{
+      @include bebas;
+      display: block;
+      color: $silver-chalice;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 10px;
+
+      @include MQ(S){
+        flex: 1;
+        text-align: right;
+        padding-right: 30px;
+        margin-bottom: 0;
+      }
+    }
+
+    button{
+      @include bebas(1);
+      @include transition(all .3s ease);
+
+      flex: 1;
+      background: transparent;
+      border: 2px solid $silver-chalice;
+      color: $silver-chalice;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 5px 0;
+      margin-right: 15px;
+      width: calc(33% - 30px); 
+
+      &:last-child{
+        margin-right: 0;
+      }
+
+      &:hover{
+        border-color: $tosca;
+        color: $tosca;
+      }
+    }
+  }
+
   @include MQ(S){
-    padding: 45px 0;
-  }
-
-  p{
-    color: $delta;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.4;
-    text-align: center;
-    text-transform: uppercase;
-
-    @include MQ(M){
-      text-align: left;
-    }
-  }
-
-  .Form__control--search{
-    float: none;
-    margin: 10px 0;
-  }
-
-  @include MQ(M){
-    .Form,
-    p{
-      display: inline-block;
-      vertical-align: middle;
-      width: inherit;
-    }
-
     .Form__control--search{
-      margin-left: 30px;
-      width: 300px;
+      float: right;
+      margin: 0;
+      max-width: 320px;
+      width: 100%;
     }
   }
 }
@@ -197,7 +385,7 @@ html, body {
   @include clearfix;
 
   &__item{
-    background-position: left 0;
+    background-position: left center;
     background-repeat: no-repeat;
     background-size: cover;
     float: left;
@@ -209,7 +397,7 @@ html, body {
     &::after{
       @include transition(all .3s ease);
 
-      background: rgba($mine-shaft, .58);
+      background: rgba($mine-shaft, .4);
       content: "";
       display: block;
       height: 100%;
@@ -220,15 +408,20 @@ html, body {
     }
 
     &:hover{
-      &::after{
+/*      &::after{
         opacity: 0;
         visibility: hidden;
+      }*/
+
+      .Grid__buttons a{
+        @include transform(translateY(0));
+        opacity: 1;
       }
 
       .Grid__title{
-        @include transform(translateY(-40px));
-        opacity: 0;
-        visibility: hidden;
+        @include transform(translateY(30px));
+        opacity: 1;
+        visibility: visible;
       }
 
       .Grid__buttons{
@@ -258,32 +451,37 @@ html, body {
   }
 
   &__title{
-    @include transition(all .3s ease);
+    @include transition(all .3s ease-in-out);
+    @include transform(translateY(-40px));
+    @include bebas(3);
 
-    bottom: 15px;
     color: white;
-    font-family: $titillium;
     font-size: 14px;
     font-weight: bold;
-    letter-spacing: 1px;
-    line-height: 1.4;
+    left: 20px;
+    line-height: 1.2;
     margin: 0;
+    opacity: 0;
     position: absolute;
-    text-align: center;
+    visibility: hidden;
     width: 100%;
     z-index: 1;
 
     small{
       display: block;
       font-size: 10px;
-      font-weight: normal;
+      color: $silver-sand;
+    }
+
+    h4{
+      margin: 0;
     }
 
     @include MQ(M){
-      font-size: 16px;
+      font-size: 26px;
 
       small{
-        font-size: 12px;
+        font-size: 18px;
       }
     }
   }
@@ -292,7 +490,8 @@ html, body {
     @include transform(translateY(50px));
     @include transition(all .4s ease);
 
-    background: rgba($emperor, .67);
+    background: $mine-shaft;
+    transition-delay: .15s;
     bottom: 0;
     left: 0;
     opacity: 0;
@@ -304,30 +503,49 @@ html, body {
     z-index: 1;
 
     @include MQ(M){
-      padding: 20px 5px;
+      padding: 12px 5px;
     }
 
     > a {
-      color: white;
+      @include transition(all .5s ease);
+      @include transform(translateY(40px));
+
+      transition-delay: .2s;
+
+      color: $silver-chalice;
       display: inline-block;
       float: left;
-      font-size: 14px;
+      font-family: "Bebas Neue";
+      font-size: 13px;
       font-weight: bold;
-      letter-spacing: 1px;
+      letter-spacing: 1.6px;
       line-height: 1;
+      opacity: 0;
+      margin: 0 4%;
+      padding: 10px 10px 7px;
       position: relative;
       text-decoration: none;
-      width: 50%;
+      width: 42%;
 
-      &:last-child{
-        &::before{
-          background-color: #7d7d7b;
-          content: "";
-          display: inline-block;
+      &::after{
+        @include transition(all .3s ease);
+
+        content: "";
+        border: 2px solid $tosca;
+        opacity: 0;
+        width: 100%;
+        height: 70%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      &:hover{
+        color: $tosca;
+
+        &::after{
+          opacity: 1;
           height: 100%;
-          left: -5px;
-          position: absolute;
-          width: 2px;
         }
       }
 
@@ -338,8 +556,51 @@ html, body {
   }
 }
 
+.Ver{
+  padding: 25px 0;
 
+  .u-button{
+    margin: 0 auto;
+  }
+}
 
+.Info{
+  display: flex;
+
+  &__item{    
+    background-size: cover;
+    color: $silver-sand;
+    flex: 1;
+    height: 315px;
+    position: relative;
+
+    h3{
+      @include bebas(4);
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .u-button{
+      
+      @include MQ(S){
+        margin: 0 auto;
+        max-width: 170px;
+      }
+    }
+
+    &:nth-child(1){
+      background-image: url(../img/avalie.jpg);
+    }
+
+    &:nth-child(2){
+      background-image: url(../img/negociacao.jpg);
+    }
+
+    &:nth-child(3){
+      background-image: url(../img/fale-conosco.jpg);
+    }
+  }
+}
 
 
 

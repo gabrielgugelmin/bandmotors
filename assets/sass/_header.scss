@@ -61,7 +61,7 @@
       height: 70px;
 
       .Menu{
-        top: 5px;
+        top: 10px;
       }
 
       .Header__logo{
@@ -269,6 +269,28 @@
       @include MQ(S){
         font-size: 18px;
         padding: 15px 0 15px 15px;
+      }
+
+      @include MQ(M){
+        padding: 15px 0;
+
+        &::after{
+          @include transition(all .3s ease);
+
+          content: "";
+          width: 0;
+          height: 2px;
+          background-color: $tosca;
+          position: absolute;
+          bottom: 10px;
+          left: 15px;
+        }
+
+        &:hover{
+          &::after{
+            width: calc(100% - 30px);
+          }
+        }
       }
 
       &:hover{
