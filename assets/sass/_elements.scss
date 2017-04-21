@@ -125,7 +125,7 @@
 		opacity: 0;
 		position: absolute;
 		right: 8px;
-		top: 0;
+		top: 8px;
 		visibility: hidden;
 	}
 }
@@ -144,6 +144,7 @@
 	letter-spacing: 1.5px;
 	line-height: 48px;
 	max-width: 300px;
+	padding-right: 52px;
 	position: relative;
 	text-align: center;
 	text-decoration: none;
@@ -159,20 +160,31 @@
 		display: inline-block;
 		height: 48px;		
 		position: absolute;
-		right: -52px;
+		right: 0;
 		top: -2px;
 		width: 52px;		
 	}
 
 	&--small{
 		@extend .u-button;
+
 		height: 36px;
 		line-height: 36px;
+		padding-right: 36px;
 
 		&::after{
-			right: -36px;
+			right: 0;
 			height: 36px;
 			width: 36px;
+		}
+	}
+
+	&--clean{
+		@extend .u-button;
+		padding-right: 0;
+
+		&::after{
+			display: none;
 		}
 	}
 
