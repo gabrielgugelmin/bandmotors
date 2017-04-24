@@ -356,11 +356,10 @@ $(function(){
     infinite: true,
     nextArrow: '<button type="button" class="Arrow__button Arrow__button--next"></button>',
     prevArrow: '<button type="button" class="Arrow__button Arrow__button--prev"></button>',
-    slidesToScroll: 1,
-    slidesToShow: 4,
-    vertical: true,
-    verticalSwiping: true
-    /*mobileFirst: true,
+    slidesToScroll: 2,
+    slidesToShow: 2,
+    mobileFirst: true,
+    centerMode: true,
     responsive: [
       {
         breakpoint: 767,
@@ -368,10 +367,23 @@ $(function(){
           slidesToShow: 6,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
+          dots: true,
+          vertical: true,
+          verticalSwiping: true
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          centerMode: true,
+          vertical: true,
+          verticalSwiping: true
         }
       }
-    ]*/
+    ]
   });
 
   // parceiros
