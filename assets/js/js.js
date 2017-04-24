@@ -79,28 +79,205 @@ $(function(){
 
   function initialize() {
 
-      var chicago = new google.maps.LatLng(-19.890709, -43.920771);
+      var chicago = new google.maps.LatLng(-23.623433, -46.650460);
       var myOptions = {
           zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           center: chicago,
           mapTypeControl: false,
-          scrollwheel: false
+          scrollwheel: false,
+          styles: [
+                  {
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                        "color": "#f5f5f5"
+                      }
+                    ]
+                  },
+                  {
+                    "elementType": "labels.icon",
+                    "stylers": [
+                      {
+                        "visibility": "off"
+                      }
+                    ]
+                  },
+                  {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                        "color": "#616161"
+                      }
+                    ]
+                  },
+                  {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                      {
+                        "color": "#f5f5f5"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                        "color": "#bdbdbd"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "poi",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                        "color": "#eeeeee"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                        "color": "#757575"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "poi.park",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                        "color": "#e5e5e5"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                        "color": "#9e9e9e"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                        "color": "#ffffff"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                        "color": "#757575"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                        "color": "#dadada"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "road.highway",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                        "color": "#616161"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "road.local",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                        "color": "#9e9e9e"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                        "color": "#e5e5e5"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "transit.station",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                        "color": "#eeeeee"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [
+                      {
+                        "color": "#c9c9c9"
+                      }
+                    ]
+                  },
+                  {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      {
+                        "color": "#9e9e9e"
+                      }
+                    ]
+                  }
+                ]
       };
       map = new google.maps.Map(document.getElementById("map"), myOptions);
 
       markerMuseu = new google.maps.Marker({
-        position: new google.maps.LatLng(-19.890709, -43.920771),
+        position: new google.maps.LatLng(-23.623433, -46.650460),
         map: map,
-        title: 'Museu do Automóvel'
+        title: 'Band Motors',
+        icon: 'assets/img/icons/marker.png'
       });
+
+      var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Band Motors</h1>'+
+        '<div id="bodyContent">'+
+        '<p>Av. dos Bandeirantes, 5364 - Planalto Paulista, São Paulo - SP, 04071-010</p>'+
+        '<p>(11) 5594-7000</p>'+
+        '</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
 
       markerMuseu.addListener('click', function() {
         infowindow.open(map, markerMuseu);
       });
   }
 
-  //initialize();
+  if( $('#map').length ){
+    initialize();
+  }
 
 
   // SLIDER
@@ -116,6 +293,7 @@ $(function(){
 
   $('.js-bannerSlider').slick({
     autoplay: true,
+    arrows: false,
     dots: true,
     slide: '.Banner__item',
     speed: 800,
@@ -123,12 +301,11 @@ $(function(){
     verticalSwiping: true
   });
 
-
-
   // categoria
 
   $('.js-categoriaSlider').slick({
     centerMode: true,
+    focusOnSelect: true,
     centerPadding: '40px',
     slidesToShow: 5,
     prevArrow: '<button type="button" class="Arrow__button Arrow__button--prev"></button>',
@@ -156,24 +333,34 @@ $(function(){
 
   // produto
 
-  $('.js-productSlider').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    asNavFor: '.SliderNav__nav',
-    prevArrow: '<button type="button" class="Slider__button Slider__button--prev"></button>',
-    nextArrow: '<button type="button" class="Slider__button Slider__button--next"></button>',
-    fade: true
+  $('.js-bannerSliderProduct').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+        var i = (currentSlide ? currentSlide : 0) + 1;
+        $status.html('0' + i + '  <span>/  0' + slick.slideCount + '</span>');
   });
 
-  $('.js-productNav').slick({
+  $('.js-bannerSliderProduct').slick({
+    autoplay: true,
     arrows: false,
-    asNavFor: '.Slider',
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    dots: false,
+    slide: '.Banner__item',
+    speed: 800,
+    vertical: true,
+    asNavFor: '.BannerNav',
+    verticalSwiping: true
+  });
+
+  $('.js-bannerSliderNav').slick({
+    arrows: true,
+    asNavFor: '.js-bannerSliderProduct',
     focusOnSelect: true,
-    centerMode: true,
     infinite: true,
-    mobileFirst: true,
+    nextArrow: '<button type="button" class="Arrow__button Arrow__button--next"></button>',
+    prevArrow: '<button type="button" class="Arrow__button Arrow__button--prev"></button>',
+    slidesToScroll: 1,
+    slidesToShow: 4,
+    vertical: true,
+    verticalSwiping: true
+    /*mobileFirst: true,
     responsive: [
       {
         breakpoint: 767,
@@ -184,11 +371,47 @@ $(function(){
           dots: true
         }
       }
+    ]*/
+  });
+
+  // parceiros
+
+  $('.js-parceiroSlider').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    prevArrow: '<button type="button" class="Arrow__button Arrow__button--prev"></button>',
+    nextArrow: '<button type="button" class="Arrow__button Arrow__button--next"></button>',
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
     ]
   });
 
   // SCROLLBAR
   $('.u-scrollbar').perfectScrollbar(); 
+
+  // GRID
+
+  var mixer = mixitup('.Grid', {
+    animation: {
+      "duration": 401,
+        "nudge": false,
+        "reverseOut": true,
+        "effects": "fade scale(0.71) translateX(35%) translateY(-35%) rotateX(-4deg)"
+    }
+  });
 
 });
 
