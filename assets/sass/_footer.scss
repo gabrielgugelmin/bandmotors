@@ -3,6 +3,11 @@
   padding: 65px 0 0;
   font-family: $bebas;
   font-size: 16px;
+  text-align: center;
+
+  @include MQ(M){
+    text-align: left;
+  }
 
   h5{
     color: $silver-sand;
@@ -21,20 +26,25 @@
   }
 
   &__about{
-    font-size: 11px;
     display: block;
+    font-size: 11px;
     letter-spacing: .1px;
+    margin: 0 auto;
     max-width: 160px;
+
+    @include MQ(M){
+      margin: 0;
+    }
   }
 
   &__logo{
     display: block;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
     width: 70px;
   }
 
   &__list{
-    margin: 0 0 65px;
+    margin: 0;
     padding: 0;
     list-style: none;
 
@@ -56,7 +66,7 @@
 
   &__social{
     list-style: none;
-    margin: 0;
+    margin: 0 0 65px;
     padding: 0;
     
     li{
@@ -87,6 +97,7 @@
       &:nth-child(1){
         margin: 0 0 15px;
         padding-bottom: 15px;
+        display: inline-block;
 
         &::after{
           content: "";
