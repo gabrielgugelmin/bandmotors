@@ -20,11 +20,249 @@
 
 </head>
 <body>
- 
+	
+ 	<!-- MODAL FINANCIAMENTO -->
+	<div class="modal fade" id="modalFinanciamento" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">FINANCIAMENTO</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MARCA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="KM">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MODELO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="COR">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="PLACA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="ANO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="MENSAGEM / ACESSÓRIOS"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formFinanciamento"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- MODAL CONTATO -->
+	<div class="modal fade" id="modalContato" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">CONTATO</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="CIDADE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="MENSAGEM / ACESSÓRIOS"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formContato"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- MODAL AVALIE -->
+	<div class="modal fade" id="modalAvalie" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">AVALIE SEU VEÍCULO</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MARCA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="KM">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MODELO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="COR">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="PLACA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="ANO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="MENSAGEM / ACESSÓRIOS"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formAvalie"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- MODAL PROPOSTA -->
+	<div class="modal fade" id="modalProposta" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">FAÇA UMA PROPOSTA</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="CIDADE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="OBS (EX: TENHO INTERESSE NO CARRO BMW...)"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formProposta"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
 	<div class="PageWrapper">
 		<header class="Header">
 			<div class="container">
-				<a href="#/" class="Header__logo">
+				<a href="index.html" class="Header__logo">
 					<img src="assets/img/logo.png" alt="BandMotors">
 				</a>
 
@@ -62,13 +300,13 @@
 
 					<ul class="Menu__nav">
 						<li>
-							<a href="sobre.html">A BandMotors</a>
+							<a href="index.html">A BandMotors</a>
 						</li>
 						<li>
 							<a href="estoque.html">ESTOQUE</a>
 						</li>
-						<li><a href="consignacao.html">CONSIGNAÇÃO</a></li>
-						<li><a href="contato.html">CONTATO</a></li>
+						<li><a href="#/">CONSIGNAÇÃO</a></li>
+						<li><a href="#/" data-toggle="modal" data-target="#modalContato">CONTATO</a></li>
 					</ul>
 				</nav> <!-- Menu -->
 
@@ -243,12 +481,12 @@
 						<h5>CATEGORIAS</h5>
 
 						<ul class="SiteFooter__list">
-							<li><a href="#/">Home</a></li>
+							<li><a href="index.html">Home</a></li>
 							<li><a href="#/">A empresa</a></li>
-							<li><a href="#/">Veículos</a></li>
+							<li><a href="estoque.html">Veículos</a></li>
 							<li><a href="#/">Depoimentos</a></li>
-							<li><a href="#/">Contato</a></li>
-							<li><a href="#/">Agende uma visita</a></li>
+							<li><a href="#/" data-toggle="modal" data-target="#modalContato">Contato</a></li>
+							<li><a href="#/" data-toggle="modal" data-target="#modalContato">Agende uma visita</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3">
@@ -285,7 +523,7 @@
 					</small>
 
 					<div class="powered-by-inffus pull-right">
-						<p>Concepção e design: <a title="Concepção e desgin" href="http://knj.com.br" target="_blank">KNJ PROJETOS</a> | Desenvolvido por: <a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank">INFFUS</a></p>
+						<p>Desenvolvido por: <a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank">INFFUS</a></p>
 						
 					</div>
 				</div>

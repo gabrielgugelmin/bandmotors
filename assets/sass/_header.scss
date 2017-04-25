@@ -89,6 +89,8 @@
       @include transition(all .4s ease);
       @include center(x);
 
+      z-index: 2;
+
       img{
         width: 140px;
       }
