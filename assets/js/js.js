@@ -352,24 +352,21 @@ $(function(){
   $('.js-bannerSliderNav').slick({
     arrows: true,
     asNavFor: '.js-bannerSliderProduct',
+    centerMode: true,
     focusOnSelect: true,
     infinite: true,
+    mobileFirst: true,
     nextArrow: '<button type="button" class="Arrow__button Arrow__button--next"></button>',
     prevArrow: '<button type="button" class="Arrow__button Arrow__button--prev"></button>',
     slidesToScroll: 2,
     slidesToShow: 2,
-    mobileFirst: true,
-    centerMode: true,
     responsive: [
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 6,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-          vertical: true,
-          verticalSwiping: true
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true
         }
       },
       {
@@ -416,7 +413,7 @@ $(function(){
 
   // GRID
 
-  var mixer = mixitup('.Grid', {
+  mixer = mixitup('.Grid', {
     animation: {
       "duration": 401,
         "nudge": false,
@@ -424,6 +421,18 @@ $(function(){
         "effects": "fade scale(0.71) translateX(35%) translateY(-35%) rotateX(-4deg)"
     }
   });
+
+
+  // LOAD MORE
+
+  // LOAD MORE PRODUTOS
+	$('#LoadProducts').on('click', function(){
+		$(this).addClass('is-loading');
+
+		getProducts();
+
+		$(this).removeClass('is-loading');
+	});
 
 });
 
@@ -480,4 +489,82 @@ function clickOutsideMenu(){
   } else{
     $(document).off('mouseup');
   }
+}
+
+function getProducts(idCategoria){
+	
+	var query_string = {};
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i=0;i<vars.length;i++) {
+	var pair = vars[i].split("=");
+	
+  // If first entry with this name
+	if (typeof query_string[pair[0]] === "undefined") {
+		  query_string[pair[0]] = decodeURIComponent(pair[1]);
+		  // If second entry with this name
+		} else if (typeof query_string[pair[0]] === "string") {
+		  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+		  query_string[pair[0]] = arr;
+		  // If third or later entry with this name
+		} else {
+		  query_string[pair[0]].push(decodeURIComponent(pair[1]));
+		}
+	} 
+	
+	//Veriavel com categoria
+	//var idCategoria = query_string.categoria; 
+	var idCategoria = query_string.categoria;
+
+	$.getJSON( "assets/json/produtos.json", function(data) {
+  	
+	})
+  .fail(function(data) {
+    console.log( "error" );
+  }).success(function(data) {
+
+  	$elementos = [];
+  	
+  	var x = false;
+  	$.each(data, function(index, element) {
+      
+		if(element.titulo!=''){
+	  		preco = parseFloat(element.preco);    
+
+      	var $box = '<div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="' + element.marca +'" data-modelo="' + element.modelo +'" data-valor="' + preco +'">' +
+        '<div class="Grid__title">' +
+          '<h4>' + element.titulo + ' <small>' + element.modelo + '</small></h4>' +
+        '</div>' +
+        '<div class="Grid__buttons">' +
+          '<a href="/carro/'+ element.alias +'">VER DETALHES</a>' +
+          '<a href="#/">FAZER PROPOSTA</a>' +
+        '</div>' +
+      '</div>';
+		  
+      $("#Container").append($box);
+  		
+  		}else{
+
+	  		var $box = '<h3>Nada por aqui. <a href="./">Clique para voltar.</a></h3><br>';
+
+		}
+		
+
+    //var $newElement = $('<div class="mix"></div>');
+
+    // Insert the new elements starting at index 3
+
+    
+		//$("#Container").append($box);
+		
+	});
+mixer.forceRefresh();
+
+	
+/*	if(x==true){
+	}else{				
+		initIsotope();
+	}	*/
+		
+  });
 }
