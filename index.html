@@ -26,11 +26,251 @@
 
 </head>
 <body>
+
+	
+
+	<!-- MODAL FINANCIAMENTO -->
+	<div class="modal fade" id="modalFinanciamento" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">FINANCIAMENTO</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MARCA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="KM">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MODELO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="COR">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="PLACA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="ANO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="MENSAGEM / ACESSÓRIOS"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formFinanciamento"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- MODAL CONTATO -->
+	<div class="modal fade" id="modalContato" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">CONTATO</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="CIDADE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="MENSAGEM / ACESSÓRIOS"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formContato"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- MODAL AVALIE -->
+	<div class="modal fade" id="modalAvalie" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">AVALIE SEU VEÍCULO</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MARCA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="KM">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MODELO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="COR">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="PLACA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="ANO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="MENSAGEM / ACESSÓRIOS"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formAvalie"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- MODAL PROPOSTA -->
+	<div class="modal fade" id="modalProposta" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">FAÇA UMA PROPOSTA</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="CIDADE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="OBS (EX: TENHO INTERESSE NO CARRO BMW...)"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formProposta"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
  
 	<div class="PageWrapper">
 		<header class="Header">
 			<div class="container">
-				<a href="#/" class="Header__logo">
+				<a href="index.html" class="Header__logo">
 					<img src="assets/img/logo.png" alt="BandMotors">
 				</a>
 
@@ -68,13 +308,13 @@
 
 					<ul class="Menu__nav">
 						<li>
-							<a href="sobre.html">A BandMotors</a>
+							<a href="index.html">A BandMotors</a>
 						</li>
 						<li>
 							<a href="estoque.html">ESTOQUE</a>
 						</li>
-						<li><a href="consignacao.html">CONSIGNAÇÃO</a></li>
-						<li><a href="contato.html">CONTATO</a></li>
+						<li><a href="#/">CONSIGNAÇÃO</a></li>
+						<li><a href="#/" data-toggle="modal" data-target="#modalContato">CONTATO</a></li>
 					</ul>
 				</nav> <!-- Menu -->
 
@@ -218,9 +458,9 @@
 								<span>Filtrar por:</span>
 
 								<div>
-									<button data-sort="marca:asc">marca</button>
-									<button data-sort="modelo:asc">modelo</button>
-									<button data-sort="valor:asc">valor</button>
+									<button data-sort-by="marca">marca</button>
+									<button data-sort-by="modelo">modelo</button>
+									<button data-sort-by="valor">valor</button>
 								</div>
 							</div>
 						</div> <!-- col -->
@@ -229,140 +469,140 @@
 			</section> <!-- Busca -->
 
 			<section class="Grid">
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
 					<div class="Grid__title">
 						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
 					</div> <!-- Grid__title -->
 
 					<div class="Grid__buttons">
 						<a href="carro.html">VER DETALHES</a>
-						<a href="#/">FAZER PROPOSTA</a>
+						<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
 					</div> <!-- Grid__buttons -->
-				</div> <!-- Grid__item mix -->
+				</div> <!-- Grid__item -->
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
           <div class="Grid__title">
             <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
           </div> <!-- Grid__title -->
 
           <div class="Grid__buttons">
             <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
           </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
+        </div> <!-- Grid__item -->
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
           <div class="Grid__title">
             <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
           </div> <!-- Grid__title -->
 
           <div class="Grid__buttons">
             <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
           </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
+        </div> <!-- Grid__item -->
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
           <div class="Grid__title">
             <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
           </div> <!-- Grid__title -->
 
           <div class="Grid__buttons">
             <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
           </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
+        </div> <!-- Grid__item -->
 
 
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
 					<div class="Grid__title">
 						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
 					</div> <!-- Grid__title -->
 
 					<div class="Grid__buttons">
 						<a href="carro.html">VER DETALHES</a>
-						<a href="#/">FAZER PROPOSTA</a>
+						<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
 					</div> <!-- Grid__buttons -->
-				</div> <!-- Grid__item mix -->
+				</div> <!-- Grid__item -->
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
           <div class="Grid__title">
             <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
           </div> <!-- Grid__title -->
 
           <div class="Grid__buttons">
             <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
           </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
+        </div> <!-- Grid__item -->
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
           <div class="Grid__title">
             <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
           </div> <!-- Grid__title -->
 
           <div class="Grid__buttons">
             <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
           </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
+        </div> <!-- Grid__item -->
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
           <div class="Grid__title">
             <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
           </div> <!-- Grid__title -->
 
           <div class="Grid__buttons">
             <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
           </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
+        </div> <!-- Grid__item -->
 
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
 					<div class="Grid__title">
 						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
 					</div> <!-- Grid__title -->
 
 					<div class="Grid__buttons">
 						<a href="carro.html">VER DETALHES</a>
-						<a href="#/">FAZER PROPOSTA</a>
+						<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
 					</div> <!-- Grid__buttons -->
-				</div> <!-- Grid__item mix -->
+				</div> <!-- Grid__item -->
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
           <div class="Grid__title">
             <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
           </div> <!-- Grid__title -->
 
           <div class="Grid__buttons">
             <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
           </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
+        </div> <!-- Grid__item -->
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
           <div class="Grid__title">
             <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
           </div> <!-- Grid__title -->
 
           <div class="Grid__buttons">
             <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
           </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
+        </div> <!-- Grid__item -->
 
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
+        <div class="Grid__item" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
           <div class="Grid__title">
             <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
           </div> <!-- Grid__title -->
 
           <div class="Grid__buttons">
             <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
+            <a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
           </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
+        </div> <!-- Grid__item -->
 
 
 
@@ -370,7 +610,7 @@
 
 			<section class="Ver">
 				<div class="container">
-					<a href="#/" class="u-button">
+					<a href="estoque.html" class="u-button">
 						ver estoque completo
 					</a>
 				</div>
@@ -379,15 +619,15 @@
 			<section class="Info">
 				<div class="Info__item">
 					<h3>avalie seu<br>veículo online</h3>
-					<a href="#/" class="u-button--small">avalie</a>
+					<a href="#/" class="u-button--small" data-toggle="modal" data-target="#modalAvalie">avalie</a>
 				</div>
 				<div class="Info__item">
 					<h3>financiamento</h3>
-					<a href="#/" class="u-button--small">financie</a>
+					<a href="#/" class="u-button--small" data-toggle="modal" data-target="#modalFinanciamento">financie</a>
 				</div>
 				<div class="Info__item">
 					<h3>fale conosco</h3>
-					<a href="#/" class="u-button--small">contato</a>
+					<a href="#/" class="u-button--small" data-toggle="modal" data-target="#modalContato">contato</a>
 				</div>
 			</section> <!-- Info -->
 
@@ -426,12 +666,12 @@
 						<h5>CATEGORIAS</h5>
 
 						<ul class="SiteFooter__list">
-							<li><a href="#/">Home</a></li>
+							<li><a href="index.html">Home</a></li>
 							<li><a href="#/">A empresa</a></li>
-							<li><a href="#/">Veículos</a></li>
+							<li><a href="estoque.html">Veículos</a></li>
 							<li><a href="#/">Depoimentos</a></li>
-							<li><a href="#/">Contato</a></li>
-							<li><a href="#/">Agende uma visita</a></li>
+							<li><a href="#/" data-toggle="modal" data-target="#modalContato">Contato</a></li>
+							<li><a href="#/" data-toggle="modal" data-target="#modalContato">Agende uma visita</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3">
@@ -468,7 +708,7 @@
 					</small>
 
 					<div class="powered-by-inffus pull-right">
-						<p>Concepção e design: <a title="Concepção e desgin" href="http://knj.com.br" target="_blank">KNJ PROJETOS</a> | Desenvolvido por: <a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank">INFFUS</a></p>
+						<p>Desenvolvido por: <a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank">INFFUS</a></p>
 						
 					</div>
 				</div>

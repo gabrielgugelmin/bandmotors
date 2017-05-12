@@ -42,6 +42,8 @@ $(function(){
 
   // validar formulario
   $('.js-submitForm').on('click', function (e) {
+    var form = $(this).attr('id');
+    console.log(form);
 
     e.preventDefault();
     var qtdErro = 0;
@@ -55,20 +57,68 @@ $(function(){
     });
 
     if (qtdErro == 0) {
-      return $.ajax({
-        type: "POST",
-        url: "/ajax/contato.php",
-        data: $(this).serialize(),
-        success: function (data) {
-          if (data === "success") {
-            console.log('Mensagem enviada com sucesso.');
-            // Limpa o form
-            $('.Form').trigger("reset");
-          } else {
-            console.log('Erro ao tentar enviar mensagem: ' + data);
+      // financiamento
+      if(form == 'formFinanciamento'){
+        return $.ajax({
+          type: "POST",
+          url: "/ajax/financiamento.php",
+          data: $(this).serialize(),
+          success: function (data) {
+            if (data === "success") {
+              console.log('Mensagem enviada com sucesso.');
+              // Limpa o form
+              $('.Form').trigger("reset");
+            } else {
+              console.log('Erro ao tentar enviar mensagem: ' + data);
+            }
           }
-        }
-      });
+        });
+      } else if(form == 'formContato'){
+        return $.ajax({
+          type: "POST",
+          url: "/ajax/contato.php",
+          data: $(this).serialize(),
+          success: function (data) {
+            if (data === "success") {
+              console.log('Mensagem enviada com sucesso.');
+              // Limpa o form
+              $('.Form').trigger("reset");
+            } else {
+              console.log('Erro ao tentar enviar mensagem: ' + data);
+            }
+          }
+        });
+      } else if(form == 'formAvalie'){
+        return $.ajax({
+          type: "POST",
+          url: "/ajax/avalie.php",
+          data: $(this).serialize(),
+          success: function (data) {
+            if (data === "success") {
+              console.log('Mensagem enviada com sucesso.');
+              // Limpa o form
+              $('.Form').trigger("reset");
+            } else {
+              console.log('Erro ao tentar enviar mensagem: ' + data);
+            }
+          }
+        });
+      }else if(form == 'formProposta'){
+        return $.ajax({
+          type: "POST",
+          url: "/ajax/proposta.php",
+          data: $(this).serialize(),
+          success: function (data) {
+            if (data === "success") {
+              console.log('Mensagem enviada com sucesso.');
+              // Limpa o form
+              $('.Form').trigger("reset");
+            } else {
+              console.log('Erro ao tentar enviar mensagem: ' + data);
+            }
+          }
+        });
+      }
     } else {
       console.log('Erro ao tentar enviar mensagem. Tente novamente.');
     }
@@ -413,28 +463,66 @@ $(function(){
 
   // GRID
 
-  mixer = mixitup('.Grid', {
-    animation: {
-      "duration": 401,
-        "nudge": false,
-        "reverseOut": true,
-        "effects": "fade scale(0.71) translateX(35%) translateY(-35%) rotateX(-4deg)"
+  // init Isotope
+  var $grid = $('.Grid').isotope({
+    itemSelector: '.Grid__item',
+    layoutMode: 'fitRows',
+    getSortData: {
+      marca: '[data-marca]',
+      modelo: '[data-modelo]',
+      valor: '[data-valor] parseInt'
     }
   });
 
+  // bind sort button click
+  $('.Busca__filtro').on( 'click', 'button', function() {
+    var sortByValue = $(this).attr('data-sort-by');
+    $grid.isotope({ sortBy: sortByValue });
+  });
 
-  // LOAD MORE
+  // change is-active class on buttons
+  $('.Busca__filtro').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.is-active').removeClass('is-active');
+      $( this ).addClass('is-active');
+    });
+  });
 
-  // LOAD MORE PRODUTOS
-	$('#LoadProducts').on('click', function(){
-		$(this).addClass('is-loading');
+  $('#LoadProducts').on( 'click', function() {
+    var elems = [];
 
-		getProducts();
+    $.getJSON( "assets/json/produtos.json", function(data) {  	
+    })
+    .fail(function(data) {
+      console.log( "error" );
+    }).success(function(data) {
+      $.each(data, function(index, element) {
+        
+        if(element[0].nome != ''){
+          preco = parseFloat(element[0].preco);    
 
-		$(this).removeClass('is-loading');
-	});
+          var $elem = $('<div class="Grid__item mix" style="background-image: url(assets/img/carros/'+ element[0].imagem +'.jpg);" data-marca="' + element[0].marca +'" data-modelo="' + element[0].modelo +'" data-valor="' + preco +'">' +
+          '<div class="Grid__title">' +
+            '<h4>' + element[0].nome + ' <small>' + element[0].modelo + '</small></h4>' +
+          '</div>' +
+          '<div class="Grid__buttons">' +
+            '<a href="/carro/'+ element[0].alias +'">VER DETALHES</a>' +
+            '<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>' +
+          '</div>' +
+          '<p>'+preco+'</p>' +
+        '</div>');
+          
+          elems.push( $elem[0] );          
+        }
+      });
 
+      $grid.isotope( 'insert', elems );
+    });    
+  });
 });
+
+
 
 function closeMenu(){
   $('.Menu').removeClass('Menu--open');
@@ -489,82 +577,4 @@ function clickOutsideMenu(){
   } else{
     $(document).off('mouseup');
   }
-}
-
-function getProducts(idCategoria){
-	
-	var query_string = {};
-	var query = window.location.search.substring(1);
-	var vars = query.split("&");
-	for (var i=0;i<vars.length;i++) {
-	var pair = vars[i].split("=");
-	
-  // If first entry with this name
-	if (typeof query_string[pair[0]] === "undefined") {
-		  query_string[pair[0]] = decodeURIComponent(pair[1]);
-		  // If second entry with this name
-		} else if (typeof query_string[pair[0]] === "string") {
-		  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
-		  query_string[pair[0]] = arr;
-		  // If third or later entry with this name
-		} else {
-		  query_string[pair[0]].push(decodeURIComponent(pair[1]));
-		}
-	} 
-	
-	//Veriavel com categoria
-	//var idCategoria = query_string.categoria; 
-	var idCategoria = query_string.categoria;
-
-	$.getJSON( "assets/json/produtos.json", function(data) {
-  	
-	})
-  .fail(function(data) {
-    console.log( "error" );
-  }).success(function(data) {
-
-  	$elementos = [];
-  	
-  	var x = false;
-  	$.each(data, function(index, element) {
-      
-		if(element.titulo!=''){
-	  		preco = parseFloat(element.preco);    
-
-      	var $box = '<div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="' + element.marca +'" data-modelo="' + element.modelo +'" data-valor="' + preco +'">' +
-        '<div class="Grid__title">' +
-          '<h4>' + element.titulo + ' <small>' + element.modelo + '</small></h4>' +
-        '</div>' +
-        '<div class="Grid__buttons">' +
-          '<a href="/carro/'+ element.alias +'">VER DETALHES</a>' +
-          '<a href="#/">FAZER PROPOSTA</a>' +
-        '</div>' +
-      '</div>';
-		  
-      $("#Container").append($box);
-  		
-  		}else{
-
-	  		var $box = '<h3>Nada por aqui. <a href="./">Clique para voltar.</a></h3><br>';
-
-		}
-		
-
-    //var $newElement = $('<div class="mix"></div>');
-
-    // Insert the new elements starting at index 3
-
-    
-		//$("#Container").append($box);
-		
-	});
-mixer.forceRefresh();
-
-	
-/*	if(x==true){
-	}else{				
-		initIsotope();
-	}	*/
-		
-  });
 }

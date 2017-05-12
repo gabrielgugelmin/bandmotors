@@ -456,7 +456,7 @@ html, body {
         border-color: darken($tosca, 15%);
       }
 
-      &.mixitup-control-active{
+      &.is-active{
         border-color: $tosca;
         color: $tosca;
       }
