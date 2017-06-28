@@ -80,6 +80,11 @@
       &:first-child{
         margin-left: 0;
       }
+
+      img{
+        max-height: 20px;
+        max-width: 20px;
+      }
     }
   }
 

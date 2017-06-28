@@ -1,6 +1,77 @@
 $(function(){
   clickOutsideMenu();
 
+  // SCROLLBAR
+  $('.js-scrollbar').perfectScrollbar();
+
+  	// PREENCHE OS CAMPOS ESTADO E CIDADE //
+/*
+	$(document).ready(function(){	
+		$.getJSON('assets/json/estado-cidade.json',function(data){
+	
+			var items = [];
+			var options = '<li><a href="#/" data-set="set-estado" data-option="">selecione um estado</a></li>';	
+	
+			$.each(data, function (key, val) {
+				//options += '<option value="' + val.nome + '">' + val.nome + '</option>';
+				options += '<li><a href="#/" data-set="set-estado" data-option="' + val.nome + '">' + val.nome + '</a></li>';
+			});					
+			$("#estados").html(options);				
+			
+			$("#estados li a").click(function () {				
+			
+				var options_cidades = '';
+				var str = "";					
+				
+				//$("#estados data-option").each(function () {
+					str += $(this).text();
+				//});
+				
+				$.each(data, function (key, val) {
+					if(val.nome == str) {							
+						$.each(val.cidades, function (key_city, val_city) {
+							//options_cidades += '<option value="' + val_city + '">' + val_city + '</option>';
+							options_cidades += '<li><a href="#/" data-set="set-estado" data-option="' + val_city + '">' + val_city + '</a></li>';
+						});							
+					}
+				});
+	
+				$("#cidades").html(options_cidades);
+				
+			}).change();		
+		
+		});
+	});
+*/
+	
+	
+	$(window).load(function() {
+		
+	  // dropdown
+	  $('.Dropdown').on('click', function(){
+	    $(this).toggleClass('is-open');
+	  });
+	
+	  $('.Dropdown a').on('click', function(){
+	     var option = $(this).attr('data-option');
+	     if(option=='') option = $(this).text();
+	     var set = $(this).attr('data-set'); 
+	    $('.'+set+'').text(option).addClass('is-selected');
+	    $('.'+set+'').val(option);
+	  });
+	  
+	  // click proposta
+	  $('.btnProposta').on('click', function(e){
+	    e.preventDefault();   
+	    
+		var veiculo = $(this).attr('data-veiculo');
+		$('#assunto').val(veiculo);
+		
+	  });
+  
+	
+	});
+
   // MENU
   // click no hamburguer icon
   $('.MenuTrigger').on('click', function(e){
@@ -38,12 +109,166 @@ $(function(){
     	$('.Header').removeClass('is-scrolling');
     }
   });
+  
+  
+  
+
+  	/* FORM CONTATO */
+	$('#formContato').submit(function(e){ 
+	    
+	    e.preventDefault();
+	    var qtdErro = 0;
+	
+	    	$(this).find('[data-validate=true]').each(function() {
+				var value = $.trim($(this).find('input, textarea').val());
+				if(!value.length > 0){
+					$(this).addClass('error');
+					qtdErro++;
+				}else{
+					$(this).removeClass('error');
+				}
+			}); 
+			
+			if(qtdErro == 0){
+				return $.ajax({
+					type: "POST",
+					url: "/ajax/contato.php",
+					data: $(this).serialize(),
+					success: function(data) {
+					if (data === "success") {
+						alert('Mensagem enviada com sucesso.');
+			 			// Limpa o form
+			 			$('#formContato').trigger("reset");
+					} else {
+					  alert('Erro ao tentar enviar mensagem: '+data);
+					}
+					}
+				});
+			}else{
+				alert('Erro ao tentar enviar mensagem. Tente novamente.');
+			}
+	
+	});
+	
+	
+	/* FORM AVALIE */
+	$('#formAvalie').submit(function(e){ 
+	    
+	    e.preventDefault();
+	    var qtdErro = 0;
+	
+	    	$(this).find('[data-validate=true]').each(function() {
+				var value = $.trim($(this).find('input, textarea').val());
+				if(!value.length > 0){
+					$(this).addClass('error');
+					qtdErro++;
+				}else{
+					$(this).removeClass('error');
+				}
+			}); 
+			
+			if(qtdErro == 0){
+				return $.ajax({
+					type: "POST",
+					url: "/ajax/avalie.php",
+					data: $(this).serialize(),
+					success: function(data) {
+					if (data === "success") {
+						alert('Dados enviados com sucesso. Entraremos em contato por e-mail ou telefone.');
+			 			// Limpa o form
+			 			$('#formAvalie').trigger("reset");
+					} else {
+					  alert('Erro ao tentar enviar dados: '+data);
+					}
+					}
+				});
+			}else{
+				alert('Erro ao tentar enviar dados. Tente novamente.');
+			}
+	
+	});
+	
+	
+	/* FORM FINANCIAMENTO */
+	$('#formFinanciamento').submit(function(e){ 
+	    
+	    e.preventDefault();
+	    var qtdErro = 0;
+	
+	    	$(this).find('[data-validate=true]').each(function() {
+				var value = $.trim($(this).find('input, textarea').val());
+				if(!value.length > 0){
+					$(this).addClass('error');
+					qtdErro++;
+				}else{
+					$(this).removeClass('error');
+				}
+			}); 
+			
+			if(qtdErro == 0){
+				return $.ajax({
+					type: "POST",
+					url: "/ajax/financiar.php",
+					data: $(this).serialize(),
+					success: function(data) {
+					if (data === "success") {
+						alert('Dados enviados com sucesso. Entraremos em contato por e-mail ou telefone.');
+			 			// Limpa o form
+			 			$('#formFinanciamento').trigger("reset");
+					} else {
+					  alert('Erro ao tentar enviar dados: '+data);
+					}
+					}
+				});
+			}else{
+				alert('Erro ao tentar enviar dados. Tente novamente.');
+			}
+	
+	});
+	
+	
+	/* FORM FINANCIAMENTO */
+	$('#formProposta, #formPropostaIn').submit(function(e){ 
+	    
+	    e.preventDefault();
+	    var qtdErro = 0;
+	
+	    	$(this).find('[data-validate=true]').each(function() {
+				var value = $.trim($(this).find('input, textarea').val());
+				if(!value.length > 0){
+					$(this).addClass('error');
+					qtdErro++;
+				}else{
+					$(this).removeClass('error');
+				}
+			}); 
+			
+			if(qtdErro == 0){
+				return $.ajax({
+					type: "POST",
+					url: "/ajax/proposta.php",
+					data: $(this).serialize(),
+					success: function(data) {
+					if (data === "success") {
+						alert('Proposta enviada com sucesso. Entraremos em contato por e-mail ou telefone.');
+			 			// Limpa o form
+			 			$('#formProposta').trigger("reset");
+					} else {
+					  alert('Erro ao tentar enviar dados: '+data);
+					}
+					}
+				});
+			}else{
+				alert('Erro ao tentar enviar dados. Tente novamente.');
+			}
+	
+	});
 
 
   // validar formulario
+/*
   $('.js-submitForm').on('click', function (e) {
     var form = $(this).attr('id');
-    console.log(form);
 
     e.preventDefault();
     var qtdErro = 0;
@@ -123,6 +348,7 @@ $(function(){
       console.log('Erro ao tentar enviar mensagem. Tente novamente.');
     }
   });
+*/
 
 
   // MAPS
@@ -396,7 +622,17 @@ $(function(){
     speed: 800,
     vertical: true,
     asNavFor: '.BannerNav',
-    verticalSwiping: true
+    verticalSwiping: true,
+    infinite: false,
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          verticalSwiping: false,
+        }
+      }
+    ]
   });
 
   $('.js-bannerSliderNav').slick({
@@ -436,93 +672,293 @@ $(function(){
   // parceiros
 
   $('.js-parceiroSlider').slick({
-    slidesToShow: 4,
+    arrows: false,
+    autoplay: true,
+    cssEase: 'linear',
+    dots: false, 
+    infinite: true, 
+    pauseOnHover: false,
     slidesToScroll: 4,
-    prevArrow: '<button type="button" class="Arrow__button Arrow__button--prev"></button>',
-    nextArrow: '<button type="button" class="Arrow__button Arrow__button--next"></button>',
+    slidesToShow: 4,
+    speed: 0, 
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 769,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToScroll: 2,
+          speed: 300
         }
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          speed: 300
         }
       }
     ]
   });
 
-  // SCROLLBAR
-  $('.u-scrollbar').perfectScrollbar(); 
+  // this is for the first fadeout
+  setTimeout(function(){
+    $('.js-parceiroSlider .slick-slide').addClass('opacidown');
+  },2700);
+  // all the rest of the transitions after the initial
+  $('.js-parceiroSlider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+    $('.js-parceiroSlider .slick-slide').removeClass('opacidown');
+    setTimeout(function(){
+      $('.js-parceiroSlider .slick-slide').addClass('opacidown');
+    },2700);
+  });
 
+  // pesquisa
+  $('.js-search').on('focus', function(e){
+    $('.SearchResult').addClass('is-open');
+  });
+
+  var veiculosArray = '';
+
+  $.ajax({
+    url: "/assets/json/busca.php",
+    dataType: "json",
+    async: false,
+    success: function(data) {
+      veiculosArray = data;
+    }
+  });
+
+//   var veiculosArray = [{"value":"Linde Werdelin","data":"linde-werdelin"},{"value":"Jaeger-Lecoutre","data":"jaegerlecoutre"},{"value":"Breitling","data":"breitling"},{"value":"Jaeger-Lecoutre","data":"jaegerlecoutre"},{"value":"Hublot","data":"hublot"},{"value":"Panerai","data":"panerai"},{"value":"IWC","data":"iwc"},{"value":"Rolex","data":"rolex"},{"value":"Breitling","data":"breitling"},{"value":"IWC","data":"iwc"},{"value":"Rolex","data":"rolex"}];
+  
+  // https://github.com/devbridge/jQuery-Autocomplete
+  $('.js-search').autocomplete({
+      lookup: veiculosArray,
+      lookupFilter: function(suggestion, originalQuery, queryLowerCase) {
+	        var re = new RegExp('\\b' + $.Autocomplete.utils.escapeRegExChars(queryLowerCase), 'gi');
+	        return re.test(suggestion.data);
+	    },
+      onSelect: function (suggestion) {
+            
+          //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+          window.location.href = "/estoque/"+suggestion.link;
+          
+      },
+      appendTo: '.SearchResult',
+      onSearchComplete: function(){
+        $('.SearchResult').addClass('is-visible');
+      }
+  });
+  
+  if( $('.js-grid').length ){
+    getProducts();
+  }
+  
+
+	//load more produtos
+	$('body').on('#LoadProducts','click', function(){
+		$(this).addClass('is-loading');
+	
+		getProducts();
+	
+		$(this).removeClass('is-loading');
+	});
+
+  
+});
+
+function initIsotope(){
   // GRID
-
   // init Isotope
-  var $grid = $('.Grid').isotope({
+  var $container = $('.js-grid').isotope({
     itemSelector: '.Grid__item',
     layoutMode: 'fitRows',
     getSortData: {
+	  category: '[data-category]',  
       marca: '[data-marca]',
       modelo: '[data-modelo]',
       valor: '[data-valor] parseInt'
     }
   });
 
+  var initShow = 12; //number of items loaded on init & onclick load more button
+  var counter = initShow; //counter for load more button
+  var iso = $container.data('isotope'); // get Isotope instance
+
+  if($container.is('#Container')){
+    //append load more button
+    $('.Ver .container').append('<a href="#/" class="u-button" id="LoadProducts">carregar mais</a>');
+  }
+
+  loadMore(initShow); //execute function onload
+
+  function loadMore(toShow) {
+  	var elems = $container.isotope('getFilteredItemElements');
+
+    $container.find(".hidden").removeClass("hidden");
+
+    var hiddenElems = iso.filteredItems.slice(toShow, elems.length).map(function(item) {
+      return item.element;
+    });
+
+    $(hiddenElems).addClass('hidden');
+    $container.isotope('layout');
+
+    //when no more to load, hide show more button
+    if (hiddenElems.length == 0) {
+      jQuery("#LoadProducts").hide();
+      $('.Ver .container').append('<a href="#/" id="entreContato" class="u-button" data-toggle="modal" data-target="#modalContato">entre em contato</a>');
+    } else {
+      jQuery("#entreContato").show();
+      jQuery("#LoadProducts").hide();
+    };
+
+    $('#LoadProducts').removeClass('is-loading');
+
+  }
+
+
+  
+
+  //when load more button clicked
+  $("#LoadProducts").click(function() {
+  	$(this).addClass('is-loading');
+
+    if ($('.js-filter li').data('clicked')) {
+      //when filter button clicked, set initial value for counter
+      counter = initShow;
+      $('.js-filter li').data('clicked', false);
+    } else {
+      counter = counter;
+    };
+
+    counter = counter + initShow;
+
+    loadMore(counter);
+  });
+
   // bind sort button click
-  $('.Busca__filtro').on( 'click', 'button', function() {
-    var sortByValue = $(this).attr('data-sort-by');
-    $grid.isotope({ sortBy: sortByValue });
+  $('.filtro-veiculo').on( 'click', 'a', function() {
+    var sortByValue = $(this).attr('data-sort-by'); 
+    $container.isotope({ sortBy: sortByValue });
   });
 
   // change is-active class on buttons
-  $('.Busca__filtro').each( function( i, buttonGroup ) {
+  $('.filtro-veiculo').each( function( i, buttonGroup ) {
     var $buttonGroup = $( buttonGroup );
-    $buttonGroup.on( 'click', 'button', function() {
+    $buttonGroup.on( 'click', 'a', function() {
       $buttonGroup.find('.is-active').removeClass('is-active');
       $( this ).addClass('is-active');
     });
   });
+  
+  
+  //Filtro por categoria  
+  $('.filtro-categoria').on('click', 'a', function() {
+    var categoria = $(this).attr('data-sort-by');
+    
+	//$('.Grid__item').hide(); 
+	//$('.categoria-'+idMarca).show();
+	
+    $container.isotope({
+      sortBy: categoria,
+      sortAscending : false
+    });
+  });
+  
+/*
+  // bind sort button click
+  $('.js-sort').on('click', 'li', function() {
+    var sortByValue = $(this).attr('data-sort-by');
+    var order = $(this).attr('data-order-by');
 
-  $('#LoadProducts').on( 'click', function() {
-    var elems = [];
+    if(order == "asc"){
+			$container.isotope({
+	      sortBy : sortByValue,
+	     	sortAscending : true
+	    });
+    } else if(order == "desc"){
+    	$container.isotope({
+	      sortBy : sortByValue,
+	     	sortAscending : false
+	    });
+    }   
 
-    $.getJSON( "assets/json/produtos.json", function(data) {  	
-    })
-    .fail(function(data) {
-      console.log( "error" );
-    }).success(function(data) {
-      $.each(data, function(index, element) {
-        
-        if(element[0].nome != ''){
-          preco = parseFloat(element[0].preco);    
+  });
 
-          var $elem = $('<div class="Grid__item mix" style="background-image: url(assets/img/carros/'+ element[0].imagem +'.jpg);" data-marca="' + element[0].marca +'" data-modelo="' + element[0].modelo +'" data-valor="' + preco +'">' +
+  // change is-checked class on buttons
+  $('.Filter-group').each(function(i, buttonGroup) {
+    var $buttonGroup = $(buttonGroup);
+    $buttonGroup.on('click', 'li', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $(this).addClass('is-checked');
+    });
+  });
+*/
+  
+}
+
+function getProducts(){
+	
+	var query_string = {};
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i=0;i<vars.length;i++) {
+	var pair = vars[i].split("=");
+	    // If first entry with this name
+	if (typeof query_string[pair[0]] === "undefined") {
+		  query_string[pair[0]] = decodeURIComponent(pair[1]);
+		    // If second entry with this name
+		} else if (typeof query_string[pair[0]] === "string") {
+		  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+		  query_string[pair[0]] = arr;
+		    // If third or later entry with this name
+		} else {
+		  query_string[pair[0]].push(decodeURIComponent(pair[1]));
+		}
+	} 
+	
+	//Veriavel com categoria
+	var idCategoria = query_string.categoria; 
+	
+	$.getJSON( "/assets/json/veiculos.php", function(data) {
+  	
+	})
+  .fail(function(data) {
+    console.log( "error" );
+  }).success(function(data) {
+  	$elementos = [];
+  	
+  	var x = false;
+  	$.each(data, function(index, element) {
+		if(element.titulo!=''){
+	  		
+  		var $box = '<div class="Grid__item mix '+element.idVeiculoCategoria+'" style="background-image: url(/assets/img/albuns/album_'+ element.idAlbum +'/'+ element.capa +');" data-category="'+element.idVeiculoCategoria+'" data-marca="' + element.idMarca +'" data-modelo="' + element.modelo +'" data-valor="' + element.preco +'">' +
           '<div class="Grid__title">' +
-            '<h4>' + element[0].nome + ' <small>' + element[0].modelo + '</small></h4>' +
+            '<h4>' + element.idMarca + ' <small>' + element.modelo + '</small></h4>' +
           '</div>' +
           '<div class="Grid__buttons">' +
-            '<a href="/carro/'+ element[0].alias +'">VER DETALHES</a>' +
-            '<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>' +
+            '<a href="/estoque/'+ element.alias +'/'+ element.idVeiculo +'">VER DETALHES</a>' +
+            '<a href="#/" class="btnProposta" data-veiculo="'+ element.idMarca +' ' + element.modelo + ' / '+ element.anoFabricacao +' - '+ element.anoModelo +' / '+ element.idCor +' / R$ '+ element.preco +'" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>' +
           '</div>' +
-          '<p>'+preco+'</p>' +
-        '</div>');
-          
-          elems.push( $elem[0] );          
-        }
-      });
+        '</div>';
+  		
+  		}else{
 
-      $grid.isotope( 'insert', elems );
-    });    
+	  		var $box = '<h3>Nada por aqui. <a href="./">Clique para voltar.</a></h3><br>';
+		}
+		
+		$(".js-grid").append($box);
+		
+	});
+	
+	if(x==true){
+	}else{				
+		initIsotope();
+	}	
+		
   });
-});
-
-
+}
 
 function closeMenu(){
   $('.Menu').removeClass('Menu--open');

@@ -3,10 +3,17 @@
 	<meta charset="UTF-8">
 	<title>Band Motors</title>
 
-	<meta name="viewport" content="wilih=device-wilih, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="assets/css/style.min.css">
+	<link rel="stylesheet" href="assets/css/normalize.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/slick-theme.css">
+	<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="assets/css/perfect-scrollbar.css">
+	
+	<link rel="stylesheet" href="assets/css/style.css">
 	
 	<!-- FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
@@ -305,7 +312,7 @@
 						<li>
 							<a href="estoque.html">ESTOQUE</a>
 						</li>
-						<li><a href="#/">CONSIGNAÇÃO</a></li>
+						<li><a href="#/" data-toggle="modal" data-target="#modalFinanciamento">FINANCIAMENTO</a></li>
 						<li><a href="#/" data-toggle="modal" data-target="#modalContato">CONTATO</a></li>
 					</ul>
 				</nav> <!-- Menu -->
@@ -315,71 +322,71 @@
 
 		<div class="PageContent">
 
-      <div class="BannerWrapper">
+      		<div class="BannerWrapper">
 				<section class="Banner--internal js-bannerSliderProduct">
-					<div class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
+					<a data-fancybox="gallery" href="assets/img/carro.jpg" class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
 						<div class="container">
 							<div class="Banner__content">
 								<h1>BMW <span>M3E-46</span></h1>
 							</div> <!-- Banner-content -->
 						</div> <!-- container -->
-					</div>  <!-- Banner__item -->
+					</a>  <!-- Banner__item -->
 
-					<div class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
+					<a data-fancybox="gallery" href="assets/img/carro.jpg" class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
 						<div class="container">
 							<div class="Banner__content">
 								<h1>BMW <span>M3E-46</span></h1>
 							</div> <!-- Banner-content -->
 						</div> <!-- container -->
-					</div>  <!-- Banner__item -->
+					</a>  <!-- Banner__item -->
 
-					<div class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
+					<a data-fancybox="gallery" href="assets/img/carro.jpg" class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
 						<div class="container">
 							<div class="Banner__content">
 								<h1>BMW <span>M3E-46</span></h1>
 							</div> <!-- Banner-content -->
 						</div> <!-- container -->
-					</div>  <!-- Banner__item -->
+					</a>  <!-- Banner__item -->
 
-					<div class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
+					<a data-fancybox="gallery" href="assets/img/carro.jpg" class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
 						<div class="container">
 							<div class="Banner__content">
 								<h1>BMW <span>M3E-46</span></h1>
 							</div> <!-- Banner-content -->
 						</div> <!-- container -->
-					</div>  <!-- Banner__item -->
+					</a>  <!-- Banner__item -->
 
-					<div class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
+					<a data-fancybox="gallery" href="assets/img/carro.jpg" class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
 						<div class="container">
 							<div class="Banner__content">
 								<h1>BMW <span>M3E-46</span></h1>
 							</div> <!-- Banner-content -->
 						</div> <!-- container -->
-					</div>  <!-- Banner__item -->
+					</a>  <!-- Banner__item -->
 
-					<div class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
+					<a data-fancybox="gallery" href="assets/img/carro.jpg" class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
 						<div class="container">
 							<div class="Banner__content">
 								<h1>BMW <span>M3E-46</span></h1>
 							</div> <!-- Banner-content -->
 						</div> <!-- container -->
-					</div>  <!-- Banner__item -->
+					</a>  <!-- Banner__item -->
 
-					<div class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
+					<a data-fancybox="gallery" href="assets/img/carro.jpg" class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
 						<div class="container">
 							<div class="Banner__content">
 								<h1>BMW <span>M3E-46</span></h1>
 							</div> <!-- Banner-content -->
 						</div> <!-- container -->
-					</div>  <!-- Banner__item -->
+					</a>  <!-- Banner__item -->
 
-					<div class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
+					<a data-fancybox="gallery" href="assets/img/carro.jpg" class="Banner__item" style="background-image: url(assets/img/carro.jpg);">
 						<div class="container">
 							<div class="Banner__content">
 								<h1>BMW <span>M3E-46</span></h1>
 							</div> <!-- Banner-content -->
 						</div> <!-- container -->
-					</div>  <!-- Banner__item -->
+					</a>  <!-- Banner__item -->
 
 					<div class="slick-count"></div>
 				</section> <!-- Banner--internal -->
@@ -460,9 +467,66 @@
         </div>
       </section> <!-- Detail -->
 
+			<section class="Similar">
+				<h2 class="Similar__title">
+					SIMILARES
+				</h2>
 
-			
+				<div class="Grid">
+					<div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+						<div class="Grid__title">
+							<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
+						</div> <!-- Grid__title -->
 
+						<div class="Grid__buttons">
+							<a href="carro.html">VER DETALHES</a>
+							<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+						</div> <!-- Grid__buttons -->
+					</div> <!-- Grid__item mix -->
+				
+
+					<div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+						<div class="Grid__title">
+							<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
+						</div> <!-- Grid__title -->
+
+						<div class="Grid__buttons">
+							<a href="carro.html">VER DETALHES</a>
+							<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+						</div> <!-- Grid__buttons -->
+					</div> <!-- Grid__item mix -->
+
+					<div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+						<div class="Grid__title">
+							<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
+						</div> <!-- Grid__title -->
+
+						<div class="Grid__buttons">
+							<a href="carro.html">VER DETALHES</a>
+							<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+						</div> <!-- Grid__buttons -->
+					</div> <!-- Grid__item mix -->
+
+					<div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
+						<div class="Grid__title">
+							<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
+						</div> <!-- Grid__title -->
+
+						<div class="Grid__buttons">
+							<a href="carro.html">VER DETALHES</a>
+							<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>
+						</div> <!-- Grid__buttons -->
+					</div> <!-- Grid__item mix -->
+				</div>
+			</section> <!-- Similar -->
+
+			<section class="Ver">
+				<div class="container">
+					<a href="estoque.html" class="u-button">
+						ver estoque completo
+					</a>
+				</div>
+			</section> <!-- Ver -->
 		</div> <!-- PageContent -->
 
 		<footer class="SiteFooter">
@@ -470,7 +534,7 @@
 
 				<div class="row">
 					<div class="col-md-3">
-						<h5>SOBRE</h5>
+						<!--<h5>SOBRE</h5>-->
 
 						<img src="assets/img/logo.png" alt="Band Motors" class="SiteFooter__logo">
 						<small class="SiteFooter__about">
@@ -522,8 +586,9 @@
 						Todos os direitos reservados <span>BandMotors Automóveis 2017.</span>
 					</small>
 
-					<div class="powered-by-inffus pull-right">
-						<p>Desenvolvido por: <a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank">INFFUS</a></p>
+					<div class="powered-by-inffus">
+						<!--<p>Desenvolvido por: <a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank">INFFUS</a></p>-->
+						<a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank"><img src="http://inffus.com/inffus-web-intelligence.svg" width="25"></a>
 						
 					</div>
 				</div>
@@ -532,7 +597,13 @@
 	</div> <!-- PageWrapper -->
 		
 	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/js.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/isotope.pkgd.min.js"></script>
+	<script src="assets/js/jquery.autocomplete.min.js"></script>
+	<script src="assets/js/jquery.fancybox.min.js"></script>
+	<script src="assets/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="assets/js/slick.min.js"></script>
+	<script src="assets/js/js.js"></script>
 
 	
 

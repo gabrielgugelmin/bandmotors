@@ -10,7 +10,7 @@ img{
 }
 
 body{
-  background-color: $mine-shaft;
+  background-color: #333333;
 
   &.overflowHidden{
     overflow: hidden;
@@ -215,6 +215,8 @@ html, body {
 }
 
 .BannerNav{
+  background-color: $mine-shaft;
+
   @include MQ(M){
     float: left;
     height: 490px !important;
@@ -385,6 +387,11 @@ html, body {
       top: 110px;
       width: 100%;
     }
+
+    .Arrow__button{
+      @include transform(none);
+      top: 210px;
+    }
   }
 }
 
@@ -428,18 +435,19 @@ html, body {
       }
     }
 
-    button{
+    a{
       @include bebas(1);
       @include transition(all .3s ease);
 
-      flex: 1;
       background: transparent;
       border: 2px solid $silver-chalice;
       color: $silver-chalice;
+      flex: 1;
       font-size: 14px;
       font-weight: bold;
-      padding: 5px 0;
       margin-right: 15px;
+      padding: 5px 0;
+      text-decoration: none;
       width: calc(33% - 30px); 
 
       &:last-child{
@@ -465,9 +473,7 @@ html, body {
 
   @include MQ(S){
     .Form__control--search{
-      float: right;
       margin: 0;
-      max-width: 320px;
       width: 100%;
     }
   }
@@ -648,10 +654,9 @@ html, body {
 }
 
 .Ver{
-  padding: 25px 0;
-
+  background-color: $mine-shaft;
   .u-button{
-    margin: 0 auto;
+    margin: 25px auto;
   }
 }
 
@@ -768,6 +773,10 @@ html, body {
 
 .Detail{
   //background-color: $fuscous-gray;
+
+  &__left{
+    background-color: $mine-shaft;
+  }
 
   h2{
     color: $mercury;

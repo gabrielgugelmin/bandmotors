@@ -15,7 +15,7 @@ gulp.task('default', ['watch', 'sequence'], function() {
     
 });
 
-gulp.task('sequence', gulpSequence('styles', 'concatcss', 'uglifyjs'));
+gulp.task('sequence', gulpSequence('styles', 'uglifyjs'));
 
 gulp.task('styles', function() {
   gulp.src(path + 'sass/*.scss')
