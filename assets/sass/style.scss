@@ -189,6 +189,7 @@ html, body {
     position: absolute;
     right: 0;
     width: 100%;
+    z-index: 1;
 
     span{
       position: relative;
@@ -456,7 +457,7 @@ html, body {
         border-color: darken($tosca, 15%);
       }
 
-      &.mixitup-control-active{
+      &.is-active{
         border-color: $tosca;
         color: $tosca;
       }
@@ -747,8 +748,29 @@ html, body {
     width: 100%;
   }
 
-  .slick-slide{
+  .slick-slide{    
     height: auto;
+
+    @include MQ(M){
+      @include transition(opacity .3s ease-in-out);
+      opacity: 1;
+
+      &.opacidown {
+        opacity: 0;
+      }
+    }
+  }
+
+  @include MQ(M){
+    .slick-current {
+      opacity: 1;
+      @include transition(opacity .3s ease-in-out);
+    }
+
+    .slick-active{
+      opacity: 1;
+      @include transition(opacity .3s ease-in-out);
+    }
   }
 
   .slick-list{
@@ -771,23 +793,23 @@ html, body {
 
   h2{
     color: $mercury;
+    font-family: $titillium;
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 4px;
+    line-height: 1.2;
     margin: 0 0 30px;
     position: relative;
-    font-family: $titillium;
-    line-height: 1.2;
     text-transform: uppercase;
 
     &::after{
-      content: "";
-      height: 1px;
-      width: 70%;
       background-color: #666667;
       bottom: -10px;
-      position: absolute;
+      content: "";
       display: block;
+      height: 1px;
+      position: absolute;
+      width: 70%;
     }
   }
 
@@ -893,16 +915,16 @@ html, body {
   height: 490px;
   
   &__title{
-    color: $silver-sand;
     @include bebas(4);
+    color: $silver-sand;
     font-size: 24px;
-    text-align: center;
+    font-weight: bold;
     left: 0;
     margin: 0 auto;
     position: absolute;
     right: 0;
+    text-align: center;
     top: -55px;
-    font-weight: bold;
   }
 }
 
@@ -910,4 +932,90 @@ html, body {
 #map{
   width: 100%;
   height: 490px;
+}
+
+.SearchResult{
+	@include transform(translateX(100%));
+	@include transition(all .4s ease);
+
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: -4px;
+	visibility: hidden;
+	width: 100%;
+
+	&.is-open{
+		@include transform(translateX(0));
+		opacity: 1;
+		visibility: visible;
+		z-index: 2;	
+	}
+
+	&.is-visible{
+		.autocomplete-suggestions{
+			@include transform(translateY(0));
+			max-width: 100%;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.autocomplete-suggestions{
+	@include transform(translateY(-100px));
+	@include transition(all .4s ease);
+  @include bebas;
+
+  background-color: $mine-shaft;
+  border: 2px solid $silver-chalice;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  overflow: auto;
+  padding: 5px 10px;
+  position: relative;
+  top: 34px;
+  visibility: hidden;
+  width: 100%;
+  z-index: 2;
+
+	@include MQ(M){
+		top: 44px;
+	}
+
+	.autocomplete-suggestion{
+    @include transition(color .3s ease);
+    
+		color: $silver-chalice;
+		font-size: 15px;
+		line-height: 1.4;
+    letter-spacing: 3px;
+    padding: 7px 0;
+    cursor: pointer;
+
+    &:hover{
+      color: $tosca;
+    }
+	}
+}
+
+.Similar{
+  padding-top: 85px;
+  background: url(../img/pattern.png) $mine-shaft 0 0;
+  position: relative;
+
+  &__title{
+    font-family: $titillium;
+    letter-spacing: 4px;
+    color: #b3b8b8;
+    font-size: 24px;
+    font-weight: bold;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 30px;
+  }
 }

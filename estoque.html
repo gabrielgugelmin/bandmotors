@@ -6,7 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="assets/css/style.min.css">
+	<link rel="stylesheet" href="assets/css/normalize.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/slick-theme.css">
+	<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="assets/css/perfect-scrollbar.css">
+	
+	<link rel="stylesheet" href="assets/css/style.css">
 	
 	<!-- FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,600,700" rel="stylesheet">
@@ -20,11 +27,249 @@
 
 </head>
 <body>
+
+	<!-- MODAL FINANCIAMENTO -->
+	<div class="modal fade" id="modalFinanciamento" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">FINANCIAMENTO</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MARCA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="KM">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MODELO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="COR">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="PLACA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="ANO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="MENSAGEM / ACESSÓRIOS"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formFinanciamento"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- MODAL CONTATO -->
+	<div class="modal fade" id="modalContato" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">CONTATO</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="CIDADE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="MENSAGEM / ACESSÓRIOS"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formContato"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- MODAL AVALIE -->
+	<div class="modal fade" id="modalAvalie" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">AVALIE SEU VEÍCULO</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MARCA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="KM">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="MODELO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="COR">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div>
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="PLACA">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+
+							<div class="Form__control--half" data-validate="true">
+								<input type="text" placeholder="ANO">
+								<span class="Form__required">*</span>
+							</div> <!-- Form__control -->
+						</div>
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="MENSAGEM / ACESSÓRIOS"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formAvalie"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- MODAL PROPOSTA -->
+	<div class="modal fade" id="modalProposta" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">x</button>
+					<h4 class="modal-title">FAÇA UMA PROPOSTA</h4>
+				</div>
+				<div class="modal-body">
+					<div class="Form">
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="NOME">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<input type="text" placeholder="EMAIL">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="TELEFONE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control">
+							<input type="tel" placeholder="CIDADE">
+							<span class="Form__required">*</span>
+						</div> <!-- Form__control -->
+
+						<div class="Form__control" data-validate="true">
+							<textarea rows="3" cols="30" placeholder="OBS (EX: TENHO INTERESSE NO CARRO BMW...)"></textarea>
+							<span class="Form__required">*</span>
+						</div>
+
+						<div class="Form__control--half">
+							<a href="#/" class="u-button--clean js-submitForm" id="formProposta"><span>enviar</span></a>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
  
 	<div class="PageWrapper">
 		<header class="Header">
 			<div class="container">
-				<a href="#/" class="Header__logo">
+				<a href="index.html" class="Header__logo">
 					<img src="assets/img/logo.png" alt="BandMotors">
 				</a>
 
@@ -62,13 +307,13 @@
 
 					<ul class="Menu__nav">
 						<li>
-							<a href="sobre.html">A BandMotors</a>
+							<a href="index.html">A BandMotors</a>
 						</li>
 						<li>
 							<a href="estoque.html">ESTOQUE</a>
 						</li>
-						<li><a href="consignacao.html">CONSIGNAÇÃO</a></li>
-						<li><a href="contato.html">CONTATO</a></li>
+						<li><a href="#/" data-toggle="modal" data-target="#modalFinanciamento">FINANCIAMENTO</a></li>
+						<li><a href="#/" data-toggle="modal" data-target="#modalContato">CONTATO</a></li>
 					</ul>
 				</nav> <!-- Menu -->
 
@@ -175,7 +420,9 @@
 						<div class="col-sm-6">
 							<form class="Form">
 								<div class="Form__control--search">
-									<input type="text" name="input_busca" value="" placeholder="(ex: porsche 2013)">
+									<input type="text" name="input_busca" value="" placeholder="(ex: porsche 2013)" class="js-search">
+
+									<div class="SearchResult"></div>
 								</div>
 							</form>
 						</div> <!-- col -->
@@ -184,9 +431,9 @@
 								<span>Filtrar por:</span>
 
 								<div>
-									<button data-sort="marca:asc">marca</button>
-									<button data-sort="modelo:asc">modelo</button>
-									<button data-sort="valor:asc">valor</button>
+									<button data-sort-by="marca">marca</button>
+									<button data-sort-by="modelo">modelo</button>
+									<button data-sort-by="valor">valor</button>
 								</div>
 							</div>
 						</div> <!-- col -->
@@ -194,212 +441,27 @@
 				</div> <!-- container -->
 			</section> <!-- Busca -->
 
-			<section class="Grid" id="Container">
-				<div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
-					<div class="Grid__title">
-						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
-					</div> <!-- Grid__title -->
-
-					<div class="Grid__buttons">
-						<a href="carro.html">VER DETALHES</a>
-						<a href="#/">FAZER PROPOSTA</a>
-					</div> <!-- Grid__buttons -->
-				</div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
-					<div class="Grid__title">
-						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
-					</div> <!-- Grid__title -->
-
-					<div class="Grid__buttons">
-						<a href="carro.html">VER DETALHES</a>
-						<a href="#/">FAZER PROPOSTA</a>
-					</div> <!-- Grid__buttons -->
-				</div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
-					<div class="Grid__title">
-						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
-					</div> <!-- Grid__title -->
-
-					<div class="Grid__buttons">
-						<a href="carro.html">VER DETALHES</a>
-						<a href="#/">FAZER PROPOSTA</a>
-					</div> <!-- Grid__buttons -->
-				</div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c1.jpg);" data-marca="lamborghini" data-modelo="2013" data-valor="1000000">
-					<div class="Grid__title">
-						<h4>LAMBORGHINI<small>GALLARDO / 2013 - 2013</small></h4>
-					</div> <!-- Grid__title -->
-
-					<div class="Grid__buttons">
-						<a href="carro.html">VER DETALHES</a>
-						<a href="#/">FAZER PROPOSTA</a>
-					</div> <!-- Grid__buttons -->
-				</div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c2.jpg);" data-marca="bmw" data-modelo="2014" data-valor="300000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="ferrari" data-modelo="2014" data-valor="1500000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-        <div class="Grid__item mix" style="background-image: url(assets/img/carros/c4.jpg);" data-marca="audi" data-modelo="2015" data-valor="400000">
-          <div class="Grid__title">
-            <h4>GOLF GTI 2.0 <small>2015-2016</small></h4>
-          </div> <!-- Grid__title -->
-
-          <div class="Grid__buttons">
-            <a href="carro.html">VER DETALHES</a>
-            <a href="#/">FAZER PROPOSTA</a>
-          </div> <!-- Grid__buttons -->
-        </div> <!-- Grid__item mix -->
-
-
-
-			</section> <!-- Grid -->
+		<section class="Grid js-grid" id="Container" >
+			</section>
 
 			<section class="Ver">
 				<div class="container">
-					<a href="#/" class="u-button" id="LoadProducts">
-						carregar mais
-					</a>
+					
 				</div>
 			</section> <!-- Ver -->
 
 			<section class="Info">
 				<div class="Info__item">
 					<h3>avalie seu<br>veículo online</h3>
-					<a href="#/" class="u-button--small">avalie</a>
+					<a href="#/" class="u-button--small" data-toggle="modal" data-target="#modalAvalie">avalie</a>
 				</div>
 				<div class="Info__item">
 					<h3>financiamento</h3>
-					<a href="#/" class="u-button--small">financie</a>
+					<a href="#/" class="u-button--small" data-toggle="modal" data-target="#modalFinanciamento">financie</a>
 				</div>
 				<div class="Info__item">
 					<h3>fale conosco</h3>
-					<a href="#/" class="u-button--small">contato</a>
+					<a href="#/" class="u-button--small" data-toggle="modal" data-target="#modalContato">contato</a>
 				</div>
 			</section> <!-- Info -->
 
@@ -427,7 +489,7 @@
 
 				<div class="row">
 					<div class="col-md-3">
-						<h5>SOBRE</h5>
+						<!--<h5>SOBRE</h5>-->
 
 						<img src="assets/img/logo.png" alt="Band Motors" class="SiteFooter__logo">
 						<small class="SiteFooter__about">
@@ -438,12 +500,12 @@
 						<h5>CATEGORIAS</h5>
 
 						<ul class="SiteFooter__list">
-							<li><a href="#/">Home</a></li>
+							<li><a href="index.html">Home</a></li>
 							<li><a href="#/">A empresa</a></li>
-							<li><a href="#/">Veículos</a></li>
+							<li><a href="estoque.html">Veículos</a></li>
 							<li><a href="#/">Depoimentos</a></li>
-							<li><a href="#/">Contato</a></li>
-							<li><a href="#/">Agende uma visita</a></li>
+							<li><a href="#/" data-toggle="modal" data-target="#modalContato">Contato</a></li>
+							<li><a href="#/" data-toggle="modal" data-target="#modalContato">Agende uma visita</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3">
@@ -479,8 +541,9 @@
 						Todos os direitos reservados <span>BandMotors Automóveis 2017.</span>
 					</small>
 
-					<div class="powered-by-inffus pull-right">
-						<p>Concepção e design: <a title="Concepção e desgin" href="http://knj.com.br" target="_blank">KNJ PROJETOS</a> | Desenvolvido por: <a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank">INFFUS</a></p>
+					<div class="powered-by-inffus">
+						<!--<p>Desenvolvido por: <a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank">INFFUS</a></p>-->
+						<a title="Desenvolvido pela Inffus" href="http://inffus.com" target="_blank"><img src="http://inffus.com/inffus-web-intelligence.svg" width="25"></a>
 						
 					</div>
 				</div>
@@ -491,7 +554,13 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVQh8KHCVUKoqVJHQGZbQNHdYjAPe8Km0"></script>
 	
 	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/js.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/isotope.pkgd.min.js"></script>
+	<script src="assets/js/jquery.autocomplete.min.js"></script>
+	<script src="assets/js/jquery.fancybox.min.js"></script>
+	<script src="assets/js/perfect-scrollbar.jquery.min.js"></script>
+	<script src="assets/js/slick.min.js"></script>
+	<script src="assets/js/js.js"></script>
 
 	
 

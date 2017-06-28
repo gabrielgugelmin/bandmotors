@@ -42,6 +42,7 @@ $(function(){
 
   // validar formulario
   $('.js-submitForm').on('click', function (e) {
+    var form = $(this).attr('id');
 
     e.preventDefault();
     var qtdErro = 0;
@@ -55,20 +56,68 @@ $(function(){
     });
 
     if (qtdErro == 0) {
-      return $.ajax({
-        type: "POST",
-        url: "/ajax/contato.php",
-        data: $(this).serialize(),
-        success: function (data) {
-          if (data === "success") {
-            console.log('Mensagem enviada com sucesso.');
-            // Limpa o form
-            $('.Form').trigger("reset");
-          } else {
-            console.log('Erro ao tentar enviar mensagem: ' + data);
+      // financiamento
+      if(form == 'formFinanciamento'){
+        return $.ajax({
+          type: "POST",
+          url: "/ajax/financiamento.php",
+          data: $(this).serialize(),
+          success: function (data) {
+            if (data === "success") {
+              console.log('Mensagem enviada com sucesso.');
+              // Limpa o form
+              $('.Form').trigger("reset");
+            } else {
+              console.log('Erro ao tentar enviar mensagem: ' + data);
+            }
           }
-        }
-      });
+        });
+      } else if(form == 'formContato'){
+        return $.ajax({
+          type: "POST",
+          url: "/ajax/contato.php",
+          data: $(this).serialize(),
+          success: function (data) {
+            if (data === "success") {
+              console.log('Mensagem enviada com sucesso.');
+              // Limpa o form
+              $('.Form').trigger("reset");
+            } else {
+              console.log('Erro ao tentar enviar mensagem: ' + data);
+            }
+          }
+        });
+      } else if(form == 'formAvalie'){
+        return $.ajax({
+          type: "POST",
+          url: "/ajax/avalie.php",
+          data: $(this).serialize(),
+          success: function (data) {
+            if (data === "success") {
+              console.log('Mensagem enviada com sucesso.');
+              // Limpa o form
+              $('.Form').trigger("reset");
+            } else {
+              console.log('Erro ao tentar enviar mensagem: ' + data);
+            }
+          }
+        });
+      }else if(form == 'formProposta'){
+        return $.ajax({
+          type: "POST",
+          url: "/ajax/proposta.php",
+          data: $(this).serialize(),
+          success: function (data) {
+            if (data === "success") {
+              console.log('Mensagem enviada com sucesso.');
+              // Limpa o form
+              $('.Form').trigger("reset");
+            } else {
+              console.log('Erro ao tentar enviar mensagem: ' + data);
+            }
+          }
+        });
+      }
     } else {
       console.log('Erro ao tentar enviar mensagem. Tente novamente.');
     }
@@ -346,7 +395,17 @@ $(function(){
     speed: 800,
     vertical: true,
     asNavFor: '.BannerNav',
-    verticalSwiping: true
+    verticalSwiping: true,
+    infinite: false,
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          verticalSwiping: false,
+        }
+      }
+    ]
   });
 
   $('.js-bannerSliderNav').slick({
@@ -386,47 +445,90 @@ $(function(){
   // parceiros
 
   $('.js-parceiroSlider').slick({
-    slidesToShow: 4,
+    arrows: false,
+    autoplay: true,
+    cssEase: 'linear',
+    dots: false, 
+    infinite: true, 
+    pauseOnHover: false,
     slidesToScroll: 4,
-    prevArrow: '<button type="button" class="Arrow__button Arrow__button--prev"></button>',
-    nextArrow: '<button type="button" class="Arrow__button Arrow__button--next"></button>',
+    slidesToShow: 4,
+    speed: 0, 
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 769,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToScroll: 2,
+          speed: 300
         }
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          speed: 300
         }
       }
     ]
   });
 
-  // SCROLLBAR
-  $('.u-scrollbar').perfectScrollbar(); 
-
-  // GRID
-
-  mixer = mixitup('.Grid', {
-    animation: {
-      "duration": 401,
-        "nudge": false,
-        "reverseOut": true,
-        "effects": "fade scale(0.71) translateX(35%) translateY(-35%) rotateX(-4deg)"
-    }
+  // this is for the first fadeout
+  setTimeout(function(){
+    $('.js-parceiroSlider .slick-slide').addClass('opacidown');
+  },2700);
+  // all the rest of the transitions after the initial
+  $('.js-parceiroSlider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+    $('.js-parceiroSlider .slick-slide').removeClass('opacidown');
+    setTimeout(function(){
+      $('.js-parceiroSlider .slick-slide').addClass('opacidown');
+    },2700);
   });
 
+  // SCROLLBAR
+  $('.u-scrollbar').perfectScrollbar();   
 
-  // LOAD MORE
+  // pesquisa
+  $('.js-search').on('focus', function(e){
+    $('.SearchResult').addClass('is-open');
+  });
 
-  // LOAD MORE PRODUTOS
-	$('#LoadProducts').on('click', function(){
+  var produtosArray = '';
+
+  /*$.ajax({
+    url: "/assets/json/busca.php",
+    dataType: "json",
+    async: false,
+    success: function(data) {
+      produtosArray = data;
+    }
+  });*/
+
+  var produtosArray = [{"value":"Linde Werdelin","data":"linde-werdelin"},{"value":"Jaeger-Lecoutre","data":"jaegerlecoutre"},{"value":"Breitling","data":"breitling"},{"value":"Jaeger-Lecoutre","data":"jaegerlecoutre"},{"value":"Hublot","data":"hublot"},{"value":"Panerai","data":"panerai"},{"value":"IWC","data":"iwc"},{"value":"Rolex","data":"rolex"},{"value":"Breitling","data":"breitling"},{"value":"IWC","data":"iwc"},{"value":"Rolex","data":"rolex"}];
+  
+  // https://github.com/devbridge/jQuery-Autocomplete
+  $('.js-search').autocomplete({
+      lookup: produtosArray,
+      onSelect: function (suggestion) {
+            
+          //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+          window.location.href = "/produto/"+suggestion.data;
+          
+      },
+      appendTo: '.SearchResult',
+      onSearchComplete: function(){
+        $('.SearchResult').addClass('is-visible');
+      }
+  });
+  
+  if( $('.js-grid').length ){
+    getProducts();
+  }
+  
+
+  // load more produtos
+	$('body').on('#LoadProducts','click', function(){
 		$(this).addClass('is-loading');
 
 		getProducts();
@@ -434,7 +536,163 @@ $(function(){
 		$(this).removeClass('is-loading');
 	});
 
+  // dropdown
+  $('.Dropdown').on('click', function(){
+    $(this).toggleClass('is-open');
+  });
+
+  $('.Dropdown a').on('click', function(){
+    var textoCidade = $(this).text();
+    var value = $(this).data('cidade');
+
+    $('.Dropdown > span').text(textoCidade).addClass('is-selected');
+  });
 });
+
+function initIsotope(){
+  // GRID
+  // init Isotope
+  var $container = $('.js-grid').isotope({
+    itemSelector: '.Grid__item',
+    layoutMode: 'fitRows',
+    getSortData: {
+      marca: '[data-marca]',
+      modelo: '[data-modelo]',
+      valor: '[data-valor] parseInt'
+    }
+  });
+
+  var initShow = 8; //number of items loaded on init & onclick load more button
+  var counter = initShow; //counter for load more button
+  var iso = $container.data('isotope'); // get Isotope instance
+
+  if($container.is('#Container')){
+    //append load more button
+    $('.Ver .container').append('<a href="#/" class="u-button" id="LoadProducts">carregar mais</a>');
+  }
+
+  loadMore(initShow); //execute function onload
+
+  function loadMore(toShow) {
+  	var elems = $container.isotope('getFilteredItemElements');
+
+    $container.find(".hidden").removeClass("hidden");
+
+    var hiddenElems = iso.filteredItems.slice(toShow, elems.length).map(function(item) {
+      return item.element;
+    });
+
+    $(hiddenElems).addClass('hidden');
+    $container.isotope('layout');
+
+    //when no more to load, hide show more button
+    if (hiddenElems.length == 0) {
+      jQuery("#LoadProducts").hide();
+    } else {
+      jQuery("#LoadProducts").show();
+    };
+
+    $('#LoadProducts').removeClass('is-loading');
+
+  }
+
+
+  
+
+  //when load more button clicked
+  $("#LoadProducts").click(function() {
+  	$(this).addClass('is-loading');
+
+    if ($('.js-filter li').data('clicked')) {
+      //when filter button clicked, set initial value for counter
+      counter = initShow;
+      $('.js-filter li').data('clicked', false);
+    } else {
+      counter = counter;
+    };
+
+    counter = counter + initShow;
+
+    loadMore(counter);
+  });
+
+  // bind sort button click
+  $('.Busca__filtro').on( 'click', 'button', function() {
+    var sortByValue = $(this).attr('data-sort-by');
+    $container.isotope({ sortBy: sortByValue });
+  });
+
+  // change is-active class on buttons
+  $('.Busca__filtro').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.is-active').removeClass('is-active');
+      $( this ).addClass('is-active');
+    });
+  });
+}
+
+function getProducts(){
+	
+	var query_string = {};
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i=0;i<vars.length;i++) {
+	var pair = vars[i].split("=");
+	    // If first entry with this name
+	if (typeof query_string[pair[0]] === "undefined") {
+		  query_string[pair[0]] = decodeURIComponent(pair[1]);
+		    // If second entry with this name
+		} else if (typeof query_string[pair[0]] === "string") {
+		  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+		  query_string[pair[0]] = arr;
+		    // If third or later entry with this name
+		} else {
+		  query_string[pair[0]].push(decodeURIComponent(pair[1]));
+		}
+	} 
+	
+	//Veriavel com categoria
+	var idCategoria = query_string.categoria; 
+	
+	$.getJSON( "assets/json/produtos.json", function(data) {
+  	
+	})
+  .fail(function(data) {
+    console.log( "error" );
+  }).success(function(data) {
+  	$elementos = [];
+  	
+  	var x = false;
+  	$.each(data, function(index, element) {
+		if(element.titulo!=''){
+	  		
+  			var $box = '<div class="Grid__item mix" style="background-image: url(assets/img/carros/'+ element[0].imagem +'.jpg);" data-marca="' + element[0].marca +'" data-modelo="' + element[0].modelo +'" data-valor="' + element[0].preco +'">' +
+          '<div class="Grid__title">' +
+            '<h4>' + element[0].nome + ' <small>' + element[0].modelo + '</small></h4>' +
+          '</div>' +
+          '<div class="Grid__buttons">' +
+            '<a href="/carro/'+ element[0].alias +'">VER DETALHES</a>' +
+            '<a href="#/" data-toggle="modal" data-target="#modalProposta">FAZER PROPOSTA</a>' +
+          '</div>' +
+        '</div>';
+  		
+  		}else{
+
+	  		var $box = '<h3>Nada por aqui. <a href="./">Clique para voltar.</a></h3><br>';
+		}
+		
+		$(".js-grid").append($box);
+		
+	});
+	
+	if(x==true){
+	}else{				
+		initIsotope();
+	}	
+		
+  });
+}
 
 function closeMenu(){
   $('.Menu').removeClass('Menu--open');
@@ -489,82 +747,4 @@ function clickOutsideMenu(){
   } else{
     $(document).off('mouseup');
   }
-}
-
-function getProducts(idCategoria){
-	
-	var query_string = {};
-	var query = window.location.search.substring(1);
-	var vars = query.split("&");
-	for (var i=0;i<vars.length;i++) {
-	var pair = vars[i].split("=");
-	
-  // If first entry with this name
-	if (typeof query_string[pair[0]] === "undefined") {
-		  query_string[pair[0]] = decodeURIComponent(pair[1]);
-		  // If second entry with this name
-		} else if (typeof query_string[pair[0]] === "string") {
-		  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
-		  query_string[pair[0]] = arr;
-		  // If third or later entry with this name
-		} else {
-		  query_string[pair[0]].push(decodeURIComponent(pair[1]));
-		}
-	} 
-	
-	//Veriavel com categoria
-	//var idCategoria = query_string.categoria; 
-	var idCategoria = query_string.categoria;
-
-	$.getJSON( "assets/json/produtos.json", function(data) {
-  	
-	})
-  .fail(function(data) {
-    console.log( "error" );
-  }).success(function(data) {
-
-  	$elementos = [];
-  	
-  	var x = false;
-  	$.each(data, function(index, element) {
-      
-		if(element.titulo!=''){
-	  		preco = parseFloat(element.preco);    
-
-      	var $box = '<div class="Grid__item mix" style="background-image: url(assets/img/carros/c3.jpg);" data-marca="' + element.marca +'" data-modelo="' + element.modelo +'" data-valor="' + preco +'">' +
-        '<div class="Grid__title">' +
-          '<h4>' + element.titulo + ' <small>' + element.modelo + '</small></h4>' +
-        '</div>' +
-        '<div class="Grid__buttons">' +
-          '<a href="/carro/'+ element.alias +'">VER DETALHES</a>' +
-          '<a href="#/">FAZER PROPOSTA</a>' +
-        '</div>' +
-      '</div>';
-		  
-      $("#Container").append($box);
-  		
-  		}else{
-
-	  		var $box = '<h3>Nada por aqui. <a href="./">Clique para voltar.</a></h3><br>';
-
-		}
-		
-
-    //var $newElement = $('<div class="mix"></div>');
-
-    // Insert the new elements starting at index 3
-
-    
-		//$("#Container").append($box);
-		
-	});
-mixer.forceRefresh();
-
-	
-/*	if(x==true){
-	}else{				
-		initIsotope();
-	}	*/
-		
-  });
 }
