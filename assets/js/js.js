@@ -805,12 +805,12 @@ function initIsotope(){
     $container.isotope('layout');
 
     //when no more to load, hide show more button
-    if (hiddenElems.length == 0) {
+    if (hiddenElems.length == 0 && $container.is('#Container')) {
       jQuery("#LoadProducts").hide();
       $('.Ver .container').append('<a href="#/" id="entreContato" class="u-button" data-toggle="modal" data-target="#modalContato">entre em contato</a>');
     } else {
       jQuery("#entreContato").show();
-      jQuery("#LoadProducts").hide();
+      jQuery("#LoadProducts").show();
     };
 
     $('#LoadProducts').removeClass('is-loading');
@@ -854,7 +854,8 @@ function initIsotope(){
   
   
   //Filtro por categoria  
-  $('.filtro-categoria').on('click', 'a', function() {
+  $('.filtro-categoria').on('click', 'a', function(e) {
+    e.preventDefault();
     var categoria = $(this).attr('data-sort-by');
     
 	//$('.Grid__item').hide(); 
